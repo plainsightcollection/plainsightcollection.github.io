@@ -6,7 +6,6 @@
   </head>
 <body>
 <script type="text/javascript">
-console.log('hello?');
 var level = '' +
 'X X X X X X X X' +
 '               ' +
@@ -18,12 +17,38 @@ var level = '' +
 '               ' +
 'X X X X X X X X'; 
 
-var max = 10;
 
-function click(lvl) {
+function levelToArray(lvl) {
+  return lvl.split('');
 }
 
-console.log(level);
+function click(lvl,x,y) {
+}
+
+level = levelToArray(level);
+
+var pieces = new Array();
+for (var i = 0; i < 15; i++) {
+  for (var j = 0; j < 9; j++) {
+    var square = level[i+j*15];
+    if (square == '0' || square == '1') 
+      pieces.push([i,j]);
+  }
+}
+
+var shortest = null;
+for (var i = 0; i < 1000000; i++) {
+  var lvl = level.slice();
+  for (var j = 0; j < 100; j++) {
+    var click = Math.floor(Math.random()*pieces.length+1);
+    var click = pieces[click];
+    var x = pieces[0];
+    var y = pieces[1];
+  }
+}
+
+console.log('done');
+
 </script>
 </body>
 </html>
