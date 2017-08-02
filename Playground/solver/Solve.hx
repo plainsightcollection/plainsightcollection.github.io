@@ -8,6 +8,7 @@ class Solve {
   private var length:Int;
   private var combos:Array<Array<Int>>;
   private var moves:Array<Array<Array<Int>>>;
+  private var win:Array<Array<Int>>;
 
   public function new(brd:String,wd:Int,hgt:Int,sq:Map<String,String>,gl:String,ln:Int):Void {
     board = StringTools.replace(brd,"\n","").split("");
@@ -50,22 +51,7 @@ class Solve {
       }
     }
 
-    combos = [[]];
-    var seen:Map<String,Bool> = new Map();
-    for (i in 0...length) {
-      trace('${i}/${length}');
-      var lngth = combos.length;
-      for (j in 0...lngth) {
-        var base = combos[j];
-        for (k in 0...moves.length) {
-          var p = base.slice(0);
-          p.push(k);
-          if (seen.exists(p.join(""))) continue;
-          seen[p.join("")] = true;
-          combos.push(p);
-        }
-      }
-    }
+    win = [];
 
   }
 
@@ -98,34 +84,57 @@ class Solve {
     return brd;
   }
 
-  private function strategy():Array<Array<Int>> {
-    for (i in 0...combos.length) {
-      var combo = combos[i];
-      var brd = board.slice(0);
-      for (j in 0...combo.length) {
-        var mv = combo[j];
-        move(brd,mv);
+  private function strategy(combo:Array<Int>):Array<Array<Int>> {
+    var brd = board.slice(0);
+    for (j in 0...combo.length) {
+      var mv = combo[j];
+      move(brd,mv);
+    }
+    if (check(brd)) {
+      var best:Array<Array<Int>> = new Array();
+      for (k in 0...combo.length) {
+        best.push(moves[combo[k]][0]);
       }
-      if (check(brd)) {
-        var best:Array<Array<Int>> = new Array();
-        for (k in 0...combo.length) {
-          best.push(moves[combo[k]][0]);
-        }
-        return best;
-      }
+      return best;
     }
     return [];
   }
 
   private function solved():String {
-    var strat = strategy();
+    combos = [[]];
+    for (i in 0...length) {
+      trace('${i}/${length}');
+      var lngth = combos.length;
+      for (j in 0...lngth) {
+        var base = combos[j];
+        for (k in 0...moves.length) {
+          var p = base.slice(0);
+          p.push(k);
+          if (p.join("").length < i+1) continue;
+          var strat = strategy(p);
+          if (strat.length > 0) {
+            win = strat;
+            break;
+          }
+          combos.push(p);
+        }
+        if (win.length > 0) break;
+      }
+      var keep = [[]];
+      for (j in 0...combos.length) {
+        if (combos[j].length > i) keep.push(combos[j]);
+      }
+      combos = keep;
+      if (win.length > 0) break;
+    }
+
     var alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz".split("");
 
     var sol = board.slice(0);
 
-    for (i in 0...strat.length) {
+    for (i in 0...win.length) {
       var label = alphabet[i % alphabet.length];
-      sol[idx(strat[i][0],strat[i][1])] = label;
+      sol[idx(win[i][0],win[i][1])] = label;
     }
 
     var len = cast(board.length/width,Int);
@@ -139,18 +148,18 @@ class Solve {
 
   static public function main():Void {
     var brd = '
-1-0-0-1 X X X X
-               
-X X X X X X X X
-               
-X X X X X X X X
-               
-X X X X X X X X
-               
-X X X X X X X X
+1-0 X X X X 0-0
+| |           |
+0 1-0-0 0-0-0-1
+      | |      
+X X X 0-0 X X X
+      | |      
+0-0-0-0 0-0-0 0
+|           | |
+0-1 X X X X 0-1
 ';
 
-    var solve = new Solve(brd,15,9,["0" => "1", "1" => "0"],"0",5);
+    var solve = new Solve(brd,15,9,["0" => "1", "1" => "0"],"0",10);
     trace(solve.solved());
 
   }
