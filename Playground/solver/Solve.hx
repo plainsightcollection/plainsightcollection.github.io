@@ -98,7 +98,7 @@ class Solve {
     return brd;
   }
 
-  private function solutions():Array<Array<Int>> {
+  private function strategy():Array<Array<Int>> {
     for (i in 0...combos.length) {
       var combo = combos[i];
       var brd = board.slice(0);
@@ -117,20 +117,41 @@ class Solve {
     return [];
   }
 
+  private function solved():String {
+    var strat = strategy();
+    var alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz".split("");
+
+    var sol = board.slice(0);
+
+    for (i in 0...strat.length) {
+      var label = alphabet[i % alphabet.length];
+      sol[idx(strat[i][0],strat[i][1])] = label;
+    }
+
+    var len = cast(board.length/width,Int);
+    var offset = 0;
+    for (i in 0...len) {
+      sol.insert(i*width+(offset++),"\n");
+    }
+
+    return sol.join("");
+  }
+
   static public function main():Void {
     var brd = '
+1-0-0-1 X X X X
+               
 X X X X X X X X
                
-X X 0 X X X X X
-    |          
-X 1-0-0-0-0-1 X
-    |     |    
-X X 0 X X 0 X X
+X X X X X X X X
+               
+X X X X X X X X
                
 X X X X X X X X
 ';
+
     var solve = new Solve(brd,15,9,["0" => "1", "1" => "0"],"0",5);
-    trace(solve.solutions());
+    trace(solve.solved());
 
   }
 
