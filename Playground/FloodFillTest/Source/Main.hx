@@ -3,7 +3,7 @@ package;
 import openfl.display.Sprite;
 import starling.core.Starling;
 
-class Startup extends Sprite {
+class Main extends Sprite {
   private var starling:Starling;
   
   public function new () {
