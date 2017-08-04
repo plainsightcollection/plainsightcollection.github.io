@@ -2,9 +2,9 @@
 <project>
 	
 	<meta title="BallPhysicsTest" package="is.montrose.ballPhysicsTest" version="0.0.0"/>
-	<app main="Startup" path="Export" file="BallPhysicsTest" swf-version="12.0" />
+	<app main="Main" path="Export" file="BallPhysicsTest" swf-version="12.0" />
 	
-	<window width="640" height="480" background="#222222" fps="60"/>
+	<window width="640" height="480" background="#000000" fps="60"/>
 	
 	<source path="Source" />
 	
