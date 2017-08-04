@@ -33,7 +33,7 @@ class Test extends Sprite {
     v = normal;
     trans.identity();
     trans.appendScale(1,240,1);
-    trans.appendRotation(45,new Vector3D(0,0,1,0));
+    trans.appendRotation(45,new Vector3D(0,0,1,0)); //Weirdly, rotation is in degrees
     v = trans.transformVector(v);
     cnv.graphics.lineStyle(5,0x0000FF);
     cnv.graphics.moveTo(xo,yo);
@@ -56,6 +56,12 @@ class Test extends Sprite {
     cnv.graphics.lineStyle(5,0xFF0000);
     cnv.graphics.moveTo(xo,yo);
     cnv.graphics.lineTo(xo+v.x,yo-v.y);
+
+    /*
+    v = new Vector3D(xo-xo,yo-240,0,0);
+    v.normalize();
+    trace(v);
+    */
 
     var bmp = new BitmapData(640,480,true,0xFFFFFFFF);
     bmp.draw(cnv);
