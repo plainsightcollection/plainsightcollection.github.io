@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <project>
 	
-	<meta title="ParticleDemo" package="com.sample.particledemo" version="1.0.0" company="Company Name" />
-	<app main="Startup" path="Export" file="ParticleDemo" swf-version="12.0" />
+	<meta title="BallPhysicsTest" package="is.montrose.ballPhysicsTest" version="0.0.0"/>
+	<app main="Startup" path="Export" file="BallPhysicsTest" swf-version="12.0" />
 	
-	<window width="640" height="480" background="#222222" />
+	<window width="640" height="480" background="#222222" fps="60"/>
 	
 	<source path="Source" />
 	
