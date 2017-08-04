@@ -8,10 +8,13 @@ import starling.text.TextField;
 
 import openfl.Lib.getTimer;
 import openfl.display.BitmapData;
+import openfl.ui.Mouse;
 
 class Test extends Sprite {
   public function new() {
     super();
+
+    //Mouse.hide();
 
     var thn:Int;
     var color:Int;
