@@ -13,8 +13,11 @@ import starling.core.Starling;
 import openfl.utils.Assets;
 import haxe.xml.Parser;
 
+import openfl.Lib.getTimer;
+
 class Test extends Sprite {
   private var tile:Sprite3D;
+  private var img:Image;
 
   public function new() {
     super();
@@ -27,7 +30,7 @@ class Test extends Sprite {
     var atlas = new TextureAtlas(tex,xml);
     tex = atlas.getTexture("buraq");
 
-    var img = new Image(tex);
+    img = new Image(tex);
 
     tile = new Sprite3D();
     tile.addChild(img);
@@ -48,10 +51,32 @@ class Test extends Sprite {
     if (e.keyCode != 32) return;
 
     Starling.current.juggler.removeTweens(tile);
-    tile.rotationY = 0;
 
-    var tween = new Tween(tile,3);
-    tween.animate("rotationY",90*Math.PI/180);
+    var thn = getTimer();
+    var tween = new Tween(tile,3/30);
+    if (tile.rotationY < 90*Math.PI/180) {
+      tween.animate("rotationY",90*Math.PI/180);
+      tween.onComplete = function() {
+        img.color = 0xFF0000;
+        var tween = new Tween(tile,3/30);
+        tween.animate("rotationY",180*Math.PI/180);
+        tween.onComplete = function() {
+          trace(getTimer() - thn);
+        }
+        Starling.current.juggler.add(tween);
+      }
+    } else {
+      tween.animate("rotationY",90*Math.PI/180);
+      tween.onComplete = function() {
+        img.color = 0xFFFFFF;
+        var tween = new Tween(tile,3/30);
+        tween.animate("rotationY",0);
+        tween.onComplete = function() {
+          trace(getTimer() - thn);
+        }
+        Starling.current.juggler.add(tween);
+      }
+    }
 
     Starling.current.juggler.add(tween);
 
