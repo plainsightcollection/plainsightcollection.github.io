@@ -10,7 +10,7 @@ class Main extends Sprite {
   public function new () {
     super ();
     
-    starling = new Starling (Test, stage);
+    starling = new Starling(Test, stage);
     starling.showStats = true;
     starling.start ();
   }
