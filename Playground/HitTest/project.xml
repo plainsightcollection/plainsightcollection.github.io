@@ -4,7 +4,7 @@
 	<meta title="HitTest" package="is.montrose.hitTest" version="0.0.0"/>
 	<app main="Main" path="Export" file="HitTest" swf-version="12.0" />
 	
-	<window width="640" height="480" background="#222222" fps="60"/>
+	<window width="640" height="480" background="#222222" fps="120"/>
 	
 	<source path="Source" />
 	
