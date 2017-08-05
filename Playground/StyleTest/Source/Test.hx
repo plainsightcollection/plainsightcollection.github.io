@@ -18,7 +18,7 @@ class Test extends Sprite {
     var r:Int = 50;
 
     var cnv = new openfl.display.Sprite();
-    cnv.graphics.beginFill(0xFF0000);
+    cnv.graphics.beginFill(0xFFFFFF);
     cnv.graphics.drawCircle(r,r,r);
     cnv.graphics.endFill();
 
@@ -33,6 +33,10 @@ class Test extends Sprite {
       imgs.push(new Image(tex));
     }
 
+    imgs[1].color = 0xFF0000;
+    imgs[2].color = 0x00FF00;
+    imgs[3].color = 0x0000FF;
+
     addEventListener(Event.ADDED_TO_STAGE,onAdded);
   }
 
@@ -40,7 +44,9 @@ class Test extends Sprite {
     for (i in 0...imgs.length) {
       var img = imgs[i];
 
-      img.x = (stage.stageWidth - img.width)/2 - 1.2*img.width*(imgs.length-1)/2 + 1.2*img.width*i;
+      img.x = (stage.stageWidth - img.width)/2 
+              - 1.2*img.width*(imgs.length-1)/2 
+              + 1.2*img.width*i;
       img.y = (stage.stageHeight - img.height)/2;
 
       addChild(img);
