@@ -1,6 +1,6 @@
 package;
 
-import starling.display.Starling;
+import starling.display.Sprite;
 
 class Test extends Sprite {
   public function new() {
