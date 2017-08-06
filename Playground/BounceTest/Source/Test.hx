@@ -1,96 +1,148 @@
 package;
 
 import starling.display.Sprite;
-import starling.events.Event;
 import starling.display.Image;
-import starling.display.Stage;
+import starling.events.Event;
 import starling.textures.Texture;
-import starling.core.Starling;
 import starling.animation.IAnimatable;
-import starling.display.Quad;
+import starling.core.Starling;
 
 import openfl.display.BitmapData;
 import openfl.geom.Point;
-import openfl.Lib.getTimer;
 
-import openfl.geom.Vector3D;
-import openfl.geom.Matrix3D;
-
-typedef Ball = {
-  var pos:Point;
-  var traj:Point;
+enum Dir {
+  N;
+  NE;
+  E;
+  SE;
+  S;
+  SW;
+  W;
+  NW;
 }
 
-typedef Sensor = {
-  var off:Point;
-  var trans:Point;
+class Constants {
+  public static inline var WIDTH = 688;
+  public static inline var HEIGHT = 368;
+  public static inline var R = 9;
+  public static inline var D = 19;
+  public static inline var DX = 170;
+  public static inline var DY = 235;
+  public static inline var DW = 183;
+  public static inline var MXT = 1/30;
+  public static var DIRS:Map<Dir,Point> = [
+    NE => new Point(1,-1),
+    SE => new Point(1,1),
+    SW => new Point(-1,1),
+    NW => new Point(-1,-1),
+    N => new Point(0,-R),
+    E => new Point(R,0),
+    S => new Point(0,R),
+    W => new Point(-R,0)
+  ];
 }
+typedef C = Constants;
 
-class Balls implements IAnimatable {
-  private var playField:Sprite;
-  private var balls:Array<Ball>;
-  static inline private var dx = 170;
-  static inline private var dy = 235;
-  static inline private var r = 10;
-  private var sensors:Array<Sensor>;
-  private var act:Bool;
-  private var clear:Bool;
-  private var img:Image;
+class Ball extends Image implements IAnimatable {
+  private var cx:Float;
+  private var cy:Float;
+  private var xp:Float;
+  private var yp:Float;
+  private var v:Dir;
+  private var live:Bool;
+  private var top:Bool;
+  private var right:Bool;
+  private var bottom:Bool;
+  private var left:Bool;
 
-  public function new(plyfld:Sprite) {
-    playField = plyfld;
+  public function new(cxp:Float, cyp:Float, vp:Dir, tex:Texture) {
+    super(tex);
 
-    balls = new Array<Ball>();
-    balls.push({pos:new Point(playField.stage.stageWidth/2,playField.stage.stageHeight/2),traj:new Point(1,1)});
+    cx = cxp;
+    cy = cyp;
+    v = vp;
 
-    var bmp = new BitmapData(r*2,r*2,true,0);
-    var cnv = new openfl.display.Sprite();
-    cnv.graphics.beginFill(0xFF0000);
-    cnv.graphics.drawCircle(r,r,r);
-    cnv.graphics.endFill();
-    bmp.draw(cnv);
-    bmp.lock();
-    var tex = Texture.fromBitmapData(bmp);
-    bmp.dispose();
-    
-    img = new Image(tex);
-
-    playField.addChild(img);
-
-    sensors = new Array();
-    sensors.push({off:new Point(0,-10),trans:new Point(1,-1)});
-    sensors.push({off:new Point(10,0),trans:new Point(-1,1)});
-    sensors.push({off:new Point(0,10),trans:new Point(1,-1)});
-    sensors.push({off:new Point(-10,0),trans:new Point(-1,1)});
-
-    act = false;
+    live = true;
   }
 
   public function advanceTime(time:Float):Void {
-    var x = balls[0].pos.x;
-    var y = balls[0].pos.y;
-    var clear = true;
-    for (i in 0...4) {
-      if (sensors[i].off.x + x >= 688 || sensors[i].off.x + x < 0 ||
-          sensors[i].off.y + y >= 368 || sensors[i].off.y + y < 0) {
-        clear = false;
-        if (!act) {
-          balls[0].traj.x *= sensors[i].trans.x;
-          balls[0].traj.y *= sensors[i].trans.y;
+    if (!live) return;
+    time = Math.min(C.MXT,time);
+
+    xp = cx + C.DX*C.DIRS[v].x * time; 
+    yp = cy + C.DX*C.DIRS[v].y * time; 
+
+    checkWalls();
+
+    switch v {
+      case NE: {
+        if (top || right) {
+          xp = cx;
+          yp = cy;
         }
+        if (top) v = SE;
+        if (right) v = NW;
+      }
+      case SE: {
+        if (bottom || right) {
+          xp = cx;
+          yp = cy;
+        }
+        if (bottom) v = NE;
+        if (right) v = SW;
+      }
+      case SW: {
+        if (bottom || left) {
+          xp = cx;
+          yp = cy;
+        }
+        if (bottom) v = NW;
+        if (left) v = SE;
+      }
+      case NW: {
+        if (top || left) {
+          xp = cx;
+          yp = cy;
+        }
+        if (top) v = SW;
+        if (left) v = NE;
+      }
+      default: {
+        live = false;
+        trace("Invalid velocity.");
+        return;
       }
     }
-    act = !clear;
-    balls[0].pos.x += balls[0].traj.x * time * dx;
-    balls[0].pos.y += balls[0].traj.y * time * dy;
-    img.x = balls[0].pos.x - r;
-    img.y = balls[0].pos.y - r;
+
+    if (top && left && bottom && right) {
+      live = false;
+      trace("Ball lost!");
+      return;
+    }
+
+    x = xp-C.R;
+    y = yp-C.R;
+    cx = xp;
+    cy = yp;
+
+  }
+
+  private function checkWalls():Void {
+    top = walled(xp + C.DIRS[N].x,yp + C.DIRS[N].y);
+    right = walled(xp + C.DIRS[E].x,yp + C.DIRS[E].y);
+    bottom = walled(xp + C.DIRS[S].x,yp + C.DIRS[S].y);
+    left = walled(xp + C.DIRS[W].x,yp + C.DIRS[W].y);
+    return;
+  }
+
+  private function walled(x:Float,y:Float):Bool {
+    if (x < 0 || x >= C.WIDTH) return true;
+    if (y < 0 || y >= C.HEIGHT) return true;
+    return false;
   }
 }
 
 class Test extends Sprite {
-  var balls:Balls;
-
   public function new() {
     super();
 
@@ -98,7 +150,26 @@ class Test extends Sprite {
   }
 
   private function onAdded() {
-    balls = new Balls(this);  
-    Starling.current.juggler.add(balls);
+    var cnv = new openfl.display.Sprite();
+    cnv.graphics.beginFill(0x00FF00);
+    cnv.graphics.drawCircle(C.D/2,C.D/2,C.D/2);
+    cnv.graphics.endFill();
+
+    var bmp = new BitmapData(C.D,C.D,true,0);
+    bmp.draw(cnv);
+    bmp.lock();
+
+    var tex = Texture.fromBitmapData(bmp);
+    bmp.dispose();
+
+    var ball:Ball;
+    for (i in 0...49) {
+      ball = new Ball(Math.floor(Math.random()*C.WIDTH),
+                      Math.floor(Math.random()*C.HEIGHT),
+                      [NE,SE,SW,NE][Math.floor(Math.random()*4)],
+                      tex);
+      addChild(ball);
+      Starling.current.juggler.add(ball);
+    }
   }
 }
