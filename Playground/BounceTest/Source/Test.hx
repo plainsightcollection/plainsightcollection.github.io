@@ -13,29 +13,38 @@ import openfl.display.BitmapData;
 import openfl.geom.Point;
 import openfl.Lib.getTimer;
 
+import openfl.geom.Vector3D;
+import openfl.geom.Matrix3D;
+
 typedef Ball = {
   var pos:Point;
   var traj:Point;
 }
 
+typedef Sensor = {
+  var off:Point;
+  var trans:Point;
+}
+
 class Balls implements IAnimatable {
   private var playField:Sprite;
   private var balls:Array<Ball>;
-  static inline private var dx = 0.7*4*60;
-  static inline private var dy = 0.97*4*60;
+  static inline private var dx = 170;
+  static inline private var dy = 235;
+  static inline private var r = 10;
+  private var sensors:Array<Sensor>;
   private var img:Image;
-  var acc:Float;
 
   public function new(plyfld:Sprite) {
     playField = plyfld;
 
     balls = new Array<Ball>();
-    balls.push({pos:new Point(25,25),traj:new Point(1,1)});
+    balls.push({pos:new Point(playField.stage.stageWidth/2,playField.stage.stageHeight/2),traj:new Point(1,1)});
 
-    var bmp = new BitmapData(20,20,true,0);
+    var bmp = new BitmapData(r*2,r*2,true,0);
     var cnv = new openfl.display.Sprite();
-    cnv.graphics.beginFill(0x00FF00);
-    cnv.graphics.drawCircle(10,10,10);
+    cnv.graphics.beginFill(0xFF0000);
+    cnv.graphics.drawCircle(r,r,r);
     cnv.graphics.endFill();
     bmp.draw(cnv);
     bmp.lock();
@@ -44,32 +53,29 @@ class Balls implements IAnimatable {
     
     img = new Image(tex);
 
-
-    acc = 0;
-
-    var q = new Quad(688,368,0xFFFFFFFF);
-    q.x = 0;
-    q.y = 0;
-    playField.addChild(q);
-
     playField.addChild(img);
+
+    sensors = new Array();
+    sensors.push({off:new Point(0,-10),trans:new Point(1,-1)});
+    sensors.push({off:new Point(10,0),trans:new Point(-1,1)});
+    sensors.push({off:new Point(0,10),trans:new Point(-1,1)});
+    sensors.push({off:new Point(-10,0),trans:new Point(1,-1)});
   }
 
   public function advanceTime(time:Float):Void {
-    var xp:Float;
-    var yp:Float;
-    xp = balls[0].pos.x;
-    yp = balls[0].pos.y;
-    xp += balls[0].traj.x*dx*time;
-    yp += balls[0].traj.y*dy*time;
-    if (yp-2 < 0) balls[0].traj.y *= -1;
-    if (yp+2 > 368) balls[0].traj.y *= -1;
-    if (xp-2 < 0) balls[0].traj.x *= -1;
-    if (xp+2 > 688) balls[0].traj.x *= -1;
-    balls[0].pos.x += balls[0].traj.x*dx*time;
-    balls[0].pos.y += balls[0].traj.y*dy*time;
-    img.x = balls[0].pos.x+9;
-    img.y = balls[0].pos.y+9;
+    var x = balls[0].pos.x;
+    var y = balls[0].pos.y;
+    for (i in 0...4) {
+      if (sensors[i].off.x + x >= 688 || sensors[i].off.x + x < 0 ||
+          sensors[i].off.y + y >= 368 || sensors[i].off.y + y < 0) {
+        balls[0].traj.x *= sensors[i].trans.x;
+        balls[0].traj.y *= sensors[i].trans.y;
+      }
+    }
+    balls[0].pos.x += balls[0].traj.x * time * dx;
+    balls[0].pos.y += balls[0].traj.y * time * dy;
+    img.x = balls[0].pos.x - r;
+    img.y = balls[0].pos.y - r;
   }
 }
 
