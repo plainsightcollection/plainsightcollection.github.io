@@ -33,6 +33,8 @@ class Balls implements IAnimatable {
   static inline private var dy = 235;
   static inline private var r = 10;
   private var sensors:Array<Sensor>;
+  private var act:Bool;
+  private var clear:Bool;
   private var img:Image;
 
   public function new(plyfld:Sprite) {
@@ -58,20 +60,27 @@ class Balls implements IAnimatable {
     sensors = new Array();
     sensors.push({off:new Point(0,-10),trans:new Point(1,-1)});
     sensors.push({off:new Point(10,0),trans:new Point(-1,1)});
-    sensors.push({off:new Point(0,10),trans:new Point(-1,1)});
-    sensors.push({off:new Point(-10,0),trans:new Point(1,-1)});
+    sensors.push({off:new Point(0,10),trans:new Point(1,-1)});
+    sensors.push({off:new Point(-10,0),trans:new Point(-1,1)});
+
+    act = false;
   }
 
   public function advanceTime(time:Float):Void {
     var x = balls[0].pos.x;
     var y = balls[0].pos.y;
+    var clear = true;
     for (i in 0...4) {
       if (sensors[i].off.x + x >= 688 || sensors[i].off.x + x < 0 ||
           sensors[i].off.y + y >= 368 || sensors[i].off.y + y < 0) {
-        balls[0].traj.x *= sensors[i].trans.x;
-        balls[0].traj.y *= sensors[i].trans.y;
+        clear = false;
+        if (!act) {
+          balls[0].traj.x *= sensors[i].trans.x;
+          balls[0].traj.y *= sensors[i].trans.y;
+        }
       }
     }
+    act = !clear;
     balls[0].pos.x += balls[0].traj.x * time * dx;
     balls[0].pos.y += balls[0].traj.y * time * dy;
     img.x = balls[0].pos.x - r;
