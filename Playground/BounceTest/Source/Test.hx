@@ -57,6 +57,13 @@ class Ball extends Image implements IAnimatable {
   private var left:Bool;
   private var balls:Array<Ball>;
 
+  private var a:Point;
+  private var b:Point;
+  private var d:Float;
+  private var j:Vector3D;
+  private var k:Vector3D;
+  private var ang:Float;
+
   public function new(cxp:Float, cyp:Float, vp:Dir, tex:Texture, blls:Array<Ball>) {
     super(tex);
 
@@ -66,6 +73,12 @@ class Ball extends Image implements IAnimatable {
     balls = blls;
 
     live = true;
+
+    a = new Point(cx,cy);
+    b = new Point(cx,cy);
+    j = new Vector3D(C.DIRS[v].x,C.DIRS[v].y,0,0);
+    k = new Vector3D(0,0,0,0);
+
   }
 
   public function advanceTime(time:Float):Void {
@@ -75,6 +88,7 @@ class Ball extends Image implements IAnimatable {
     xp = cx + C.DX*C.DIRS[v].x * time; 
     yp = cy + C.DX*C.DIRS[v].y * time; 
 
+    checkBalls();
     checkWalls();
 
     if (xp != cx && yp == cy) return;
@@ -84,8 +98,6 @@ class Ball extends Image implements IAnimatable {
       trace("Ball lost!");
       return;
     }
-
-    checkBalls();
 
     x = xp-C.R;
     y = yp-C.R;
@@ -146,13 +158,11 @@ class Ball extends Image implements IAnimatable {
   }
 
   private function checkBalls():Void {
-    var a = new Point(cx,cy);
-    var b = new Point(cx,cy);
-    var d:Float;
-    var j = new Vector3D(C.DIRS[v].x,C.DIRS[v].y,0,0);
+    a.x = cx;
+    a.y = cy;
+    j.x = C.DIRS[v].x;
+    j.y = C.DIRS[v].y;
     j.normalize();
-    var k = new Vector3D(0,0,0,0);
-    var ang:Float;
     for (i in 0...balls.length) {
       b.x = balls[i].cx;
       b.y = balls[i].cy;
@@ -165,8 +175,10 @@ class Ball extends Image implements IAnimatable {
       k.normalize();
       ang = Math.acos(j.dotProduct(k))*180/Math.PI;
       if (Math.abs(ang) >= 90) continue;
+      /*
       xp = cx;
       yp = cy;
+      */
       if (Math.abs(ang) < 10) {
         switch v {
           case NE: v = SW;
