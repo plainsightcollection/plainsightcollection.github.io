@@ -232,7 +232,6 @@ class Test extends Sprite implements IAnimatable {
     var tex = Texture.fromBitmapData(bmp);
     bmp.dispose();
 
-    
     balls = new Array();
     var ball:Ball;
     for (i in 0...49) {
