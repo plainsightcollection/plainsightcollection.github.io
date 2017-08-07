@@ -49,36 +49,25 @@ class Ball extends Image implements IAnimatable {
   public var cy:Float;
   private var xp:Float;
   private var yp:Float;
-  private var v:Dir;
+  public var v:Dir;
   private var live:Bool;
   private var top:Bool;
   private var right:Bool;
   private var bottom:Bool;
   private var left:Bool;
   private var balls:Array<Ball>;
+  public var index:Int;
 
-  private var a:Point;
-  private var b:Point;
-  private var d:Float;
-  private var j:Vector3D;
-  private var k:Vector3D;
-  private var ang:Float;
-
-  public function new(cxp:Float, cyp:Float, vp:Dir, tex:Texture, blls:Array<Ball>) {
+  public function new(cxp:Float, cyp:Float, vp:Dir, tex:Texture, blls:Array<Ball>, idx:Int) {
     super(tex);
 
     cx = cxp;
     cy = cyp;
     v = vp;
     balls = blls;
+    index = idx;
 
     live = true;
-
-    a = new Point(cx,cy);
-    b = new Point(cx,cy);
-    j = new Vector3D(C.DIRS[v].x,C.DIRS[v].y,0,0);
-    k = new Vector3D(0,0,0,0);
-
   }
 
   public function advanceTime(time:Float):Void {
@@ -89,6 +78,10 @@ class Ball extends Image implements IAnimatable {
     yp = cy + C.DX*C.DIRS[v].y * time; 
 
     checkBalls();
+
+    xp = cx + C.DX*C.DIRS[v].x * time; 
+    yp = cy + C.DX*C.DIRS[v].y * time; 
+
     checkWalls();
 
     if (xp != cx && yp == cy) return;
@@ -158,49 +151,33 @@ class Ball extends Image implements IAnimatable {
   }
 
   private function checkBalls():Void {
-    a.x = cx;
-    a.y = cy;
-    j.x = C.DIRS[v].x;
-    j.y = C.DIRS[v].y;
-    j.normalize();
+    var a = new Point(cx,cy);
+    var b = new Point(cx,cy);
+    var d:Float;
+    var vp:Dir;
+    var vv = new Vector3D(cx,cy,0,0);
+    vv.normalize();
+    var vw = new Vector3D(0,1,0,0);
     for (i in 0...balls.length) {
+      if (cx == balls[i].cx && 
+          cy == balls[i].cy) continue;
       b.x = balls[i].cx;
       b.y = balls[i].cy;
-      if (cx == b.x && cy == b.y) continue;
       d = Point.distance(a,b);
-      if (d >= C.D) continue;
-      //color = 0xFFFF0000;
-      k.x = b.x-a.x;
-      k.y = b.y-a.y;
-      k.normalize();
-      ang = Math.acos(j.dotProduct(k))*180/Math.PI;
-      if (Math.abs(ang) >= 90) continue;
-      /*
-      xp = cx;
-      yp = cy;
-      */
-      if (Math.abs(ang) < 10) {
-        switch v {
-          case NE: v = SW;
-          case SE: v = NW;
-          case SW: v = NE;
-          case NW: v = SE;
-          default: {
-            trace("Invalid velocity.");
-          }
-        };
-      } else {
-        switch v {
-          case NE: v = SE;
-          case SE: v = SW;
-          case SW: v = NW;
-          case NW: v = NE;
-          default: {
-            trace("Invalid velocity.");
-          }
-        };
-      };
-      break;
+      if (d > C.R) continue;
+      vw.x = balls[i].cx - cx;
+      vw.y = balls[i].cy - cy;
+      vw.normalize();
+      if (Math.abs(Math.acos(vv.dotProduct(vw))) > Math.PI/2) continue;
+      switch v {
+        case NE: v = SW;
+        case SE: v = NW;
+        case SW: v = NE;
+        case NW: v = SE;
+        default: {
+          trace("Invalid velocity.");
+        }
+      }
     }
   }
 
@@ -234,11 +211,11 @@ class Test extends Sprite implements IAnimatable {
 
     balls = new Array();
     var ball:Ball;
-    for (i in 0...49) {
+    for (i in 0...8) {
       ball = new Ball(Math.floor(Math.random()*C.WIDTH),
                       Math.floor(Math.random()*C.HEIGHT),
                       [NE,SE,SW,NE][Math.floor(Math.random()*4)],
-                      tex,balls);
+                      tex,balls,i);
       addChild(ball);
       balls.push(ball);
     }
