@@ -6,10 +6,12 @@ import starling.events.Event;
 import starling.textures.Texture;
 import starling.animation.IAnimatable;
 import starling.core.Starling;
+import starling.textures.TextureSmoothing;
 
 import openfl.display.BitmapData;
 import openfl.geom.Point;
 import openfl.geom.Vector3D;
+import openfl.Assets;
 
 enum Dir {
   N;
@@ -41,6 +43,8 @@ class Constants {
     S => new Point(0,R),
     W => new Point(-R,0)
   ];
+  public static var BG:BitmapData;
+  public static var BALLS:Array<Ball>;
 }
 typedef C = Constants;
 
@@ -55,17 +59,13 @@ class Ball extends Image implements IAnimatable {
   private var right:Bool;
   private var bottom:Bool;
   private var left:Bool;
-  private var balls:Array<Ball>;
-  public var index:Int;
 
-  public function new(cxp:Float, cyp:Float, vp:Dir, tex:Texture, blls:Array<Ball>, idx:Int) {
+  public function new(cxp:Float, cyp:Float, vp:Dir, tex:Texture) {
     super(tex);
 
     cx = cxp;
     cy = cyp;
     v = vp;
-    balls = blls;
-    index = idx;
 
     live = true;
   }
@@ -87,8 +87,10 @@ class Ball extends Image implements IAnimatable {
     if (xp != cx && yp == cy) return;
 
     if (top && bottom || left && right) {
-      live = false;
+      //live = false;
       trace("Ball lost!");
+      cx = 10;
+      cy = 10;
       return;
     }
 
@@ -158,15 +160,15 @@ class Ball extends Image implements IAnimatable {
     var vv = new Vector3D(cx,cy,0,0);
     vv.normalize();
     var vw = new Vector3D(0,1,0,0);
-    for (i in 0...balls.length) {
-      if (cx == balls[i].cx && 
-          cy == balls[i].cy) continue;
-      b.x = balls[i].cx;
-      b.y = balls[i].cy;
+    for (i in 0...C.BALLS.length) {
+      if (cx == C.BALLS[i].cx && 
+          cy == C.BALLS[i].cy) continue;
+      b.x = C.BALLS[i].cx;
+      b.y = C.BALLS[i].cy;
       d = Point.distance(a,b);
       if (d > C.R) continue;
-      vw.x = balls[i].cx - cx;
-      vw.y = balls[i].cy - cy;
+      vw.x = C.BALLS[i].cx - cx;
+      vw.y = C.BALLS[i].cy - cy;
       vw.normalize();
       if (Math.abs(Math.acos(vv.dotProduct(vw))) > Math.PI/2) continue;
       switch v {
@@ -184,7 +186,11 @@ class Ball extends Image implements IAnimatable {
   private function walled(x:Float,y:Float):Bool {
     if (x < 0 || x >= C.WIDTH) return true;
     if (y < 0 || y >= C.HEIGHT) return true;
-    return false;
+
+    var xi = Math.round(x/4);
+    var yi = Math.round(y/4);
+
+    return ((C.BG.getPixel32(xi,yi) >> 24) != 0);
   }
 }
 
@@ -197,6 +203,17 @@ class Test extends Sprite implements IAnimatable {
   }
 
   private function onAdded() {
+
+    var bgBmp = Assets.getBitmapData("assets/testField.png");
+    bgBmp.lock();
+    C.BG = bgBmp;
+    var bgt = Texture.fromBitmapData(bgBmp);
+    var img = new Image(bgt);
+    img.width = C.WIDTH;
+    img.height = C.HEIGHT;
+    img.smoothing = TextureSmoothing.NONE;
+    addChild(img);
+
     var cnv = new openfl.display.Sprite();
     cnv.graphics.beginFill(0x00FF00);
     cnv.graphics.drawCircle(C.D/2,C.D/2,C.D/2);
@@ -211,15 +228,17 @@ class Test extends Sprite implements IAnimatable {
 
     balls = new Array();
     var ball:Ball;
-    for (i in 0...8) {
+    for (i in 0...49) {
       ball = new Ball(Math.floor(Math.random()*C.WIDTH),
                       Math.floor(Math.random()*C.HEIGHT),
                       [NE,SE,SW,NE][Math.floor(Math.random()*4)],
-                      tex,balls,i);
+                      tex);
       addChild(ball);
       balls.push(ball);
     }
+    C.BALLS = balls;
     Starling.current.juggler.add(this);
+
   }
 
   public function advanceTime(time:Float):Void {

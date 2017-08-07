@@ -4,7 +4,7 @@
 	<meta title="BounceTest" package="is.montrose.bounceTest" version="0.0.0"/>
 	<app main="Main" path="Export" file="BounceTest" swf-version="12.0" />
 	
-	<window width="688" height="368" background="#000000" fps="120"/>
+	<window width="688" height="368" background="#FFFFFF" fps="120"/>
 	
 	<source path="Source" />
 	
