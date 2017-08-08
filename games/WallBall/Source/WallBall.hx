@@ -87,6 +87,13 @@ class WallBall extends Sprite implements IAnimatable {
   }
 
   private function onClick(e:MouseEvent) {
+    if (e.type == MouseEvent.CLICK) {
+      setup(cast Math.min(MAX,++level));
+      bridge.lives(level);
+    } else {
+      setup(2);
+      bridge.lives(level);
+    }
   }
 
   public function advanceTime(time:Float):Void {
