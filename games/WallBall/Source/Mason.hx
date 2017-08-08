@@ -95,6 +95,12 @@ class Mason extends Sprite implements IAnimatable {
       quadA.width = xo-quadA.x-yp*(C.MSN/2);
       quadA.height = yo-quadA.y-xp*(C.MSN/2);
 
+      C.walls[0].x = quadA.x;
+      C.walls[0].y = quadA.y;
+      C.walls[0].width = quadA.width;
+      C.walls[0].height = quadA.height;
+      C.walls[0].inflate(C.D,C.D);
+
       if (C.walled(quadA.x,quadA.y) ||
           C.walled(quadA.x-yp*C.MSN,quadA.y-xp*C.MSN)) {
         trace("A hit wall!");
@@ -107,10 +113,23 @@ class Mason extends Sprite implements IAnimatable {
       quadB.y -= yp*C.DW*time;
 
       quadC.x = xo+yp*(C.MSN/2);
-      quadC.y = -yp*(quadB.y)-xp*(yo-(C.MSN/2)); 
+      quadC.y = yo+xp*(C.MSN/2); 
 
-      quadC.width = -yp*(C.MSN)-xp*(quadB.x-xo);
-      quadC.height = -xp*(C.MSN)-yp*(yo-quadB.y);
+      quadC.width = C.MSN-xp*(quadB.x-xo);
+      quadC.height = C.MSN-yp*(quadB.y-yo);
+
+      C.walls[1].x = quadC.x;
+      C.walls[1].y = quadC.y;
+      C.walls[1].width = quadC.width;
+      C.walls[1].height = quadC.height;
+      C.walls[1].inflate(C.D,C.D);
+
+      /*
+      quadC.x = C.walls[1].x;
+      quadC.y = C.walls[1].y;
+      quadC.width = C.walls[1].width;
+      quadC.height = C.walls[1].height;
+      */
 
       if (C.walled(quadB.x-xp*C.MSN,quadB.y-yp*C.MSN) ||
           C.walled(quadB.x+C.MSN,quadB.y+C.MSN)) {
