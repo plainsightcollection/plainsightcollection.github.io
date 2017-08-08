@@ -30,20 +30,12 @@ class Ball extends Image implements IAnimatable {
   public function advanceTime(time:Float):Void {
     time = Math.min(C.MXT,time);
 
-    xp = cx + C.DX*C.DIRS[v].x * time;
-    yp = cy + C.DY*C.DIRS[v].y * time;
-
     checkBalls();
 
-    xp = cx + C.DX*C.DIRS[v].x * time;
-    yp = cy + C.DY*C.DIRS[v].y * time;
-
-    checkBG();
+    checkBG(time);
 
     if (top && bottom || left && right) {
       trace("Ball trouble!");
-      cx = (C.WIDTH-C.D)/2;
-      cy = (C.HEIGHT-C.D)/2;
       return;
     }
 
@@ -54,7 +46,10 @@ class Ball extends Image implements IAnimatable {
 
   }
 
-  private function checkBG():Void {
+  private function checkBG(time:Float):Void {
+    xp = cx + C.DX*C.DIRS[v].x * time;
+    yp = cy + C.DY*C.DIRS[v].y * time;
+
     top = walled(xp + C.DIRS[N].x,yp + C.DIRS[N].y);
     right = walled(xp + C.DIRS[E].x,yp + C.DIRS[E].y);
     bottom = walled(xp + C.DIRS[S].x,yp + C.DIRS[S].y);
@@ -105,49 +100,38 @@ class Ball extends Image implements IAnimatable {
     var a = new Point(cx,cy);
     var b = new Point(0,0);
     var d:Float;
-    var ang:Float;
-    var angp:Float;
-    var w = new Vector3D(cx,cy,0,0);
-    w.normalize();
-    var k = new Vector3D(0,1,0,0);
+    var o:Ball;
+    var t:Dir;
     for (i in 0...C.level) {
-      if (cx == C.balls[i].cx &&
-          cy == C.balls[i].cy) continue;
+      o = C.balls[i];
 
-      b.x = C.balls[i].cx;
-      b.y = C.balls[i].cy;
+      if (this == o) continue;
 
+      b.x = o.cx;
+      b.y = o.cy;
       d = Point.distance(a,b);
       if (d > C.D) continue;
 
-      k.x = C.balls[i].cx - cx;
-      k.y = C.balls[i].cy - cy;
-      k.normalize();
+      left = (o.cx <= cx);
+      right = !left;
+      top = (o.cy <= cy);
+      bottom = !top;
 
-      ang = 1000000;
-      angp = Math.abs(Math.acos(k.dotProduct(C.VECS[NE])));
-      if (angp < ang) {
-        ang = angp;
-        C.balls[i].v = NE;
-        v = SE;
+      if (top) {
+        v = SW;
+        o.v = NE;
       }
-      angp = Math.abs(Math.acos(k.dotProduct(C.VECS[SE])));
-      if (angp < ang) {
-        ang = angp;
-        C.balls[i].v = SE;
+      if (top && left) {
+        v = SE;
+        o.v = NW;
+      }
+      if (bottom) {
         v = NW;
+        o.v = SE;
       }
-      angp = Math.abs(Math.acos(k.dotProduct(C.VECS[SW])));
-      if (angp < ang) {
-        ang = angp;
-        C.balls[i].v = SW;
+      if (bottom && left) {
         v = NE;
-      }
-      angp = Math.abs(Math.acos(k.dotProduct(C.VECS[NW])));
-      if (angp < ang) {
-        ang = angp;
-        C.balls[i].v = NW;
-        v = SE;
+        o.v = SW;
       }
 
     }
