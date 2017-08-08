@@ -4,6 +4,7 @@ import starling.display.Sprite;
 import starling.events.Event;
 import starling.core.Starling;
 import starling.animation.IAnimatable;
+import starling.textures.Texture;
 
 import openfl.events.MouseEvent;
 import openfl.display.BitmapData;
@@ -35,6 +36,8 @@ class WallBall extends Sprite implements IAnimatable {
   public static inline var DY = 235;
   public static inline var DW = 183;
   public static inline var MXT = 1/30;
+  public static inline var MIN = 2;
+  public static inline var MAX = 49;
   public static var DIRS:Map<Dir,Point> = [
     NE => new Point(1,-1),
     SE => new Point(1,1),
@@ -52,21 +55,58 @@ class WallBall extends Sprite implements IAnimatable {
     bridge = new Bridge();
     self = this;
 
+    upDown = true;
+
+    var bmp = new BitmapData(D,D,true,0);
+    var cnv = new openfl.display.Sprite();
+    cnv.graphics.beginFill(0xFF00FF00);
+    cnv.graphics.drawCircle(D/2,D/2,D/2);
+    cnv.graphics.endFill();
+    bmp.draw(cnv);
+    bmp.lock;
+
+    var tex = Texture.fromBitmapData(bmp);
+    bmp.dispose();
+
+    balls = new Array();
+    for (i in 0...MAX) {
+      balls.push(new Ball(tex));
+    }
+
+    playfields = new Array();
+    for (i in 0...2) playfields[i] = new BitmapData(WIDTH,HEIGHT,true,0);
+
     addEventListener(Event.ADDED_TO_STAGE,onAdded);
     nativeStage.addEventListener(MouseEvent.CLICK, onClick);
     nativeStage.addEventListener(MouseEvent.RIGHT_CLICK, onClick);
   }
 
   private function onAdded() {
+    setup(2);
+    Starling.current.juggler.add(this);
   }
 
   private function onClick(e:MouseEvent) {
   }
 
   public function advanceTime(time:Float):Void {
+    for (i in 0...level) {
+      balls[i].advanceTime(time);
+    }
   }
 
   public static function setup(lvl:Int):Void {
+    layingBrick = false;
+    level = lvl;
+    lives = level;
+
+    for (i in 0...MAX) self.removeChild(balls[i]);
+    for (i in 0...level) {
+      balls[i].cx = Math.floor(Math.random()*WIDTH);
+      balls[i].cy = Math.floor(Math.random()*HEIGHT);
+      balls[i].v = [NE,SE,SW,NW][Math.floor(Math.random()*4)];
+      self.addChild(balls[i]);
+    }
   }
 
 }
