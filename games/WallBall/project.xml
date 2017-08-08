@@ -4,7 +4,7 @@
 	<meta title="WallBall" package="com.sample.wallBall" version="0.0.0"/>
 	<app main="Main" path="Export" file="WallBall" swf-version="12.0" />
 	
-	<window width="688" height="368" background="#222222" fps="120"/>
+	<window width="688" height="368" background="#808080" fps="120"/>
 	
 	<source path="Source" />
 	

@@ -8,9 +8,7 @@ import openfl.geom.Point;
 import openfl.geom.Vector3D;
 
 import Dir;
-import WallBall;
-
-typedef C = WallBall;
+import WallBall as C;
 
 class Ball extends Image implements IAnimatable {
   public var cx:Float;
@@ -28,8 +26,6 @@ class Ball extends Image implements IAnimatable {
   }
 
   public function advanceTime(time:Float):Void {
-    time = Math.min(C.MXT,time);
-
     checkBalls();
 
     checkBG(time);
@@ -50,10 +46,10 @@ class Ball extends Image implements IAnimatable {
     xp = cx + C.DX*C.DIRS[v].x * time;
     yp = cy + C.DY*C.DIRS[v].y * time;
 
-    top = walled(xp + C.DIRS[N].x,yp + C.DIRS[N].y);
-    right = walled(xp + C.DIRS[E].x,yp + C.DIRS[E].y);
-    bottom = walled(xp + C.DIRS[S].x,yp + C.DIRS[S].y);
-    left = walled(xp + C.DIRS[W].x, yp + C.DIRS[W].y);
+    top = C.walled(xp + C.DIRS[N].x,yp + C.DIRS[N].y);
+    right = C.walled(xp + C.DIRS[E].x,yp + C.DIRS[E].y);
+    bottom = C.walled(xp + C.DIRS[S].x,yp + C.DIRS[S].y);
+    left = C.walled(xp + C.DIRS[W].x, yp + C.DIRS[W].y);
 
     switch v {
       case NE: {
@@ -135,14 +131,6 @@ class Ball extends Image implements IAnimatable {
       }
 
     }
-  }
-
-  private function walled(x:Float, y:Float):Bool {
-    if (x < 0 || x >= C.WIDTH) return true;
-    if (y < 0 || y >= C.HEIGHT) return true;
-
-    return (C.playfields[0].getPixel32(Math.round(x/C.SCALE),
-                                       Math.round(y/C.SCALE)) >> 24!= 0);
   }
 
 }
