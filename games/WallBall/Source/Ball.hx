@@ -30,6 +30,8 @@ class Ball extends Image implements IAnimatable {
 
     checkBG(time);
 
+    checkWalls();
+
     if (top && bottom || left && right) {
       trace("Ball trouble!");
       return;
@@ -130,6 +132,17 @@ class Ball extends Image implements IAnimatable {
         o.v = SW;
       }
 
+    }
+  }
+
+  private function checkWalls():Void {
+    for (i in 0...C.level) {
+      for (j in 0...2) 
+        if (C.walls[j].contains(cx,cy)) {
+          trace("Ball hit mason!");
+          C.mason.end(j);
+          if (--C.lives < 1) C.setup(2);
+        }
     }
   }
 

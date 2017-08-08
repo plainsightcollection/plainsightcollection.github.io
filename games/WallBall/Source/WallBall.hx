@@ -129,6 +129,7 @@ class WallBall extends Sprite implements IAnimatable {
   }
 
   public static function setup(lvl:Int):Void {
+    trace("game over!");
     layingBrick = false;
     level = lvl;
     lives = level;

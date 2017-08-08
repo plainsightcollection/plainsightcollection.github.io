@@ -74,10 +74,18 @@ class Mason extends Sprite implements IAnimatable {
     switch bricks {
       case 0: {
         activeA = false;
+        C.walls[0].x = C.WIDTH*2;
+        C.walls[0].y = C.HEIGHT*2;
+        C.walls[0].width = 10;
+        C.walls[0].height = 10;
         removeChild(quadA);
       }
       default: {
         activeB = false;
+        C.walls[1].x = C.WIDTH*2;
+        C.walls[1].y = C.HEIGHT*2;
+        C.walls[1].width = 10;
+        C.walls[1].height = 10;
         removeChild(quadB);
         removeChild(quadC);
       }
