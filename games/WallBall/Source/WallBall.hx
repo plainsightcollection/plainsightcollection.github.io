@@ -9,7 +9,7 @@ import starling.textures.Texture;
 import openfl.events.MouseEvent;
 import openfl.display.BitmapData;
 import openfl.geom.Point;
-openfl.geom.Rectangle;
+import openfl.geom.Rectangle;
 
 import Bridge;
 import Ball;
@@ -27,6 +27,7 @@ class WallBall extends Sprite implements IAnimatable {
   public static var balls:Array<Ball>;
   public static var playfields:Array<BitmapData>;
   public static var walls:Array<Rectangle>;
+  public static var mason:Mason;
   public static var self:WallBall;
 
   public static inline var WIDTH = 688;
@@ -40,6 +41,7 @@ class WallBall extends Sprite implements IAnimatable {
   public static inline var MIN = 2;
   public static inline var MAX = 49;
   public static inline var SCALE = 4;
+  public static inline var MSN = 24;
   public static var DIRS:Map<Dir,Point> = [
     NE => new Point(1,-1),
     SE => new Point(1,1),
@@ -58,6 +60,7 @@ class WallBall extends Sprite implements IAnimatable {
     self = this;
 
     upDown = true;
+    layingBrick = false;
 
     var bmp = new BitmapData(D,D,true,0);
     var cnv = new openfl.display.Sprite();
@@ -76,7 +79,12 @@ class WallBall extends Sprite implements IAnimatable {
     }
 
     playfields = new Array();
-    for (i in 0...2) playfields[i] = new BitmapData(WIDTH,HEIGHT,true,0);
+    for (i in 0...2) playfields.push(new BitmapData(WIDTH,HEIGHT,true,0));
+
+    walls = new Array();
+    for (i in 0...2) walls.push(new Rectangle(WIDTH*2,HEIGHT*2,10,10));
+
+    mason = new Mason();
 
     addEventListener(Event.ADDED_TO_STAGE,onAdded);
     nativeStage.addEventListener(MouseEvent.CLICK, onClick);
@@ -85,6 +93,7 @@ class WallBall extends Sprite implements IAnimatable {
 
   private function onAdded() {
     setup(2);
+    addChild(mason);
     Starling.current.juggler.add(this);
   }
 
@@ -97,12 +106,26 @@ class WallBall extends Sprite implements IAnimatable {
     }
 
     if (e.type != MouseEvent.CLICK) return;
+    if (layingBrick) return;
+
+    layingBrick = true;
+
+    var x:Int = Math.round(e.localX/SCALE)*4;
+    var y:Int = Math.round(e.localY/SCALE)*4;
+
+    mason.begin(x,y);
+
   }
 
   public function advanceTime(time:Float):Void {
+    time = Math.min(MXT,time);
+
+    mason.advanceTime(time);
+
     for (i in 0...level) {
       balls[i].advanceTime(time);
     }
+
   }
 
   public static function setup(lvl:Int):Void {
@@ -111,6 +134,9 @@ class WallBall extends Sprite implements IAnimatable {
     lives = level;
     self.bridge.lives(level);
 
+    mason.end(0);
+    mason.end(1);
+
     for (i in 0...MAX) self.removeChild(balls[i]);
     for (i in 0...level) {
       balls[i].cx = Math.floor(Math.random()*WIDTH);
@@ -118,6 +144,14 @@ class WallBall extends Sprite implements IAnimatable {
       balls[i].v = [NE,SE,SW,NW][Math.floor(Math.random()*4)];
       self.addChild(balls[i]);
     }
+  }
+
+  public static function walled(x:Float, y:Float):Bool {
+    if (x < 0 || x >= WIDTH) return true;
+    if (y < 0 || y >= HEIGHT) return true;
+
+    return (playfields[0].getPixel32(Math.round(x/SCALE),
+                                       Math.round(y/SCALE)) >> 24!= 0);
   }
 
 }
