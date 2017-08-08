@@ -9,6 +9,7 @@ import starling.textures.Texture;
 import openfl.events.MouseEvent;
 import openfl.display.BitmapData;
 import openfl.geom.Point;
+import openfl.geom.Vector3D;
 
 import Bridge;
 import Ball;
@@ -48,6 +49,12 @@ class WallBall extends Sprite implements IAnimatable {
     S => new Point(0,R),
     W => new Point(-R,0)
   ];
+  public static var VECS:Map<Dir,Vector3D> = [
+    NE => new Vector3D(DIRS[NE].x,DIRS[NE].y,0,0),
+    SE => new Vector3D(DIRS[SE].x,DIRS[SE].y,0,0),
+    SW => new Vector3D(DIRS[SW].x,DIRS[SW].y,0,0),
+    NW => new Vector3D(DIRS[NW].x,DIRS[NW].y,0,0),
+  ];
 
   public function new() {
     super();
@@ -56,6 +63,11 @@ class WallBall extends Sprite implements IAnimatable {
     self = this;
 
     upDown = true;
+
+    VECS[NE].normalize();
+    VECS[SE].normalize();
+    VECS[SW].normalize();
+    VECS[NW].normalize();
 
     var bmp = new BitmapData(D,D,true,0);
     var cnv = new openfl.display.Sprite();
