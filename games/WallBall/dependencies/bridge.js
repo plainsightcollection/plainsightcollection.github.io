@@ -1,5 +1,5 @@
 var Bridge = function() {
-	this.x = 4;
+  this.style = document.getElementById("openfl-content").style;
 	console.log("constructor");
 };
 
@@ -9,7 +9,7 @@ Bridge.prototype = {
 		console.log(this.x);
 	}
 	,cursor: function(cur) {
-		console.log("cursor");
+    this.style.setProperty("cursor", cur);
 	}
 	,percent: function(per) {
 		console.log("percent");

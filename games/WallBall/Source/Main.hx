@@ -9,10 +9,11 @@ class Main extends Sprite {
   public function new () {
     super ();
     
+    WallBall.nativeStage = stage;
     starling = new Starling (WallBall, stage);
     starling.showStats = true;
     starling.start ();
-    
+
   }
-  
+
 }
