@@ -2,9 +2,12 @@ package;
 
 import starling.display.Sprite;
 
+import Bridge;
+
 class WallBall extends Sprite {
   public function new() {
     super();
-    trace("here");
+
+    var bridge = new Bridge();
   }
 }
