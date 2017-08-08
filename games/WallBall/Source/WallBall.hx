@@ -9,10 +9,11 @@ import starling.textures.Texture;
 import openfl.events.MouseEvent;
 import openfl.display.BitmapData;
 import openfl.geom.Point;
+openfl.geom.Rectangle;
 
 import Bridge;
 import Ball;
-import Wall;
+import Mason;
 import Dir;
 
 class WallBall extends Sprite implements IAnimatable {
@@ -25,7 +26,7 @@ class WallBall extends Sprite implements IAnimatable {
   public static var level:Int;
   public static var balls:Array<Ball>;
   public static var playfields:Array<BitmapData>;
-  public static var walls:Array<Wall>;
+  public static var walls:Array<Rectangle>;
   public static var self:WallBall;
 
   public static inline var WIDTH = 688;
