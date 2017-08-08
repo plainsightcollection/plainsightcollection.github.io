@@ -141,7 +141,8 @@ class Ball extends Image implements IAnimatable {
         if (C.walls[j].contains(cx,cy)) {
           trace("Ball hit mason!");
           C.mason.end(j);
-          if (--C.lives < 1) C.setup(2);
+          C.bridge.lives(--C.lives);
+          if (C.lives < 1) C.setup(2);
         }
     }
   }

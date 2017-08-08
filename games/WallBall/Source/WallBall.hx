@@ -5,6 +5,8 @@ import starling.events.Event;
 import starling.core.Starling;
 import starling.animation.IAnimatable;
 import starling.textures.Texture;
+import starling.display.Image;
+import starling.textures.TextureSmoothing;
 
 import openfl.events.MouseEvent;
 import openfl.display.BitmapData;
@@ -18,7 +20,7 @@ import Dir;
 
 class WallBall extends Sprite implements IAnimatable {
   public static var nativeStage:openfl.display.Stage;
-  private var bridge:Bridge;
+  public static var bridge:Bridge;
 
   public static var lives:Int;
   public static var upDown:Bool;
@@ -29,6 +31,7 @@ class WallBall extends Sprite implements IAnimatable {
   public static var walls:Array<Rectangle>;
   public static var mason:Mason;
   public static var self:WallBall;
+  public static var background:Texture;
 
   public static inline var WIDTH = 688;
   public static inline var HEIGHT = 368;
@@ -42,6 +45,8 @@ class WallBall extends Sprite implements IAnimatable {
   public static inline var MAX = 49;
   public static inline var SCALE = 4;
   public static inline var MSN = 24;
+  public static inline var SWIDTH = 172;
+  public static inline var SHEIGHT = 92;
   public static var DIRS:Map<Dir,Point> = [
     NE => new Point(1,-1),
     SE => new Point(1,1),
@@ -68,7 +73,6 @@ class WallBall extends Sprite implements IAnimatable {
     cnv.graphics.drawCircle(D/2,D/2,D/2);
     cnv.graphics.endFill();
     bmp.draw(cnv);
-    bmp.lock;
 
     var tex = Texture.fromBitmapData(bmp);
     bmp.dispose();
@@ -79,7 +83,7 @@ class WallBall extends Sprite implements IAnimatable {
     }
 
     playfields = new Array();
-    for (i in 0...2) playfields.push(new BitmapData(WIDTH,HEIGHT,true,0));
+    for (i in 0...2) playfields.push(new BitmapData(SWIDTH,SHEIGHT,true,0));
 
     walls = new Array();
     for (i in 0...2) walls.push(new Rectangle(WIDTH*2,HEIGHT*2,10,10));
@@ -92,9 +96,16 @@ class WallBall extends Sprite implements IAnimatable {
   }
 
   private function onAdded() {
-    setup(2);
+    background = Texture.fromBitmapData(playfields[0]);
+    var img = new Image(background);
+    img.smoothing = TextureSmoothing.NONE; 
+    img.x = 0;
+    img.y = 0;
+    img.scale = SCALE;
+    addChild(img);
     addChild(mason);
     Starling.current.juggler.add(this);
+    setup(2);
   }
 
   private function onClick(e:MouseEvent) {
@@ -129,14 +140,18 @@ class WallBall extends Sprite implements IAnimatable {
   }
 
   public static function setup(lvl:Int):Void {
+    if (lvl > 49) lvl = 49;
     trace("game over!");
     layingBrick = false;
     level = lvl;
     lives = level;
-    self.bridge.lives(level);
+    bridge.lives(level);
+    bridge.percent(0);
 
     mason.end(0);
     mason.end(1);
+
+    updateBackground(new Rectangle(0,0,WIDTH,HEIGHT),0x00000000);
 
     for (i in 0...MAX) self.removeChild(balls[i]);
     for (i in 0...level) {
@@ -153,6 +168,43 @@ class WallBall extends Sprite implements IAnimatable {
 
     return (playfields[0].getPixel32(Math.round(x/SCALE),
                                        Math.round(y/SCALE)) >> 24!= 0);
+  }
+
+  public static function updateBackground(rect:Rectangle,color:Int) {
+    playfields[0].lock();
+    playfields[0].fillRect(rect,color);
+    playfields[0].unlock();
+    background.root.uploadBitmapData(playfields[0]);
+    background.root.onRestore = function() {
+      background.root.uploadBitmapData(playfields[0]);
+    }
+  }
+
+  public static function fill() {
+    playfields[1] = playfields[0].clone();
+    playfields[1].lock();
+    for (i in 0...level) {
+      playfields[1].floodFill(Math.round(balls[i].cx/4),Math.round(balls[i].cy/4),0xFFFF0000);
+    }
+    playfields[0].lock();
+    playfields[1].unlock();
+    var color:UInt;
+    var count = 0;
+    for (i in 0...SWIDTH) {
+      for (j in 0...SHEIGHT) {
+        color = playfields[1].getPixel32(i,j);
+        if (color != 0xFFFF0000) {
+          playfields[0].setPixel32(i,j,0xFF000000);
+          count++;
+        }
+      }
+    }
+    playfields[1].unlock();
+    updateBackground(new Rectangle(0,0,0,0),0);
+    playfields[0].unlock();
+    var per = Math.round(100*count/(SWIDTH*SHEIGHT));
+    bridge.percent(per);
+    if (per >= 75) setup(++level);
   }
 
 }

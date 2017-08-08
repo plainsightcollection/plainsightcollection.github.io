@@ -23,7 +23,7 @@ class Mason extends Sprite implements IAnimatable {
 
     quadA = new Quad(C.MSN,C.MSN,0xFFFF0000);
     quadB = new Quad(C.MSN,C.MSN,0xFF0000FF);
-    quadC = new Quad(C.MSN,C.MSN,0xFF00FF00);
+    quadC = new Quad(C.MSN,C.MSN,0xFF0000FF);
   }
 
   public function begin(x:Int,y:Int):Void {
@@ -112,6 +112,12 @@ class Mason extends Sprite implements IAnimatable {
       if (C.walled(quadA.x,quadA.y) ||
           C.walled(quadA.x-yp*C.MSN,quadA.y-xp*C.MSN)) {
         trace("A hit wall!");
+        C.walls[0].x = Math.round(quadA.x/C.SCALE);
+        C.walls[0].y = Math.round(quadA.y/C.SCALE);
+        C.walls[0].width = Math.round(quadA.width/C.SCALE);
+        C.walls[0].height = Math.round(quadA.height/C.SCALE);
+        C.updateBackground(C.walls[0],0xFF000000);
+        C.fill();
         end(0);
       }
     }
@@ -142,6 +148,12 @@ class Mason extends Sprite implements IAnimatable {
       if (C.walled(quadB.x-xp*C.MSN,quadB.y-yp*C.MSN) ||
           C.walled(quadB.x+C.MSN,quadB.y+C.MSN)) {
         trace("B hit wall!");
+        C.walls[1].x = Math.round(quadC.x/C.SCALE);
+        C.walls[1].y = Math.round(quadC.y/C.SCALE);
+        C.walls[1].width = Math.round(quadC.width/C.SCALE);
+        C.walls[1].height = Math.round(quadC.height/C.SCALE);
+        C.updateBackground(C.walls[1],0xFF000000);
+        C.fill();
         end(1);
       }
     }
