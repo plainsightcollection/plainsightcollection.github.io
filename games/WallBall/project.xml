@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project>
+	
+	<meta title="WallBall" package="com.sample.wallBall" version="0.0.0"/>
+	<app main="Main" path="Export" file="WallBall" swf-version="12.0" />
+	
+	<window width="688" height="368" background="#222222" />
+	
+	<source path="Source" />
+	
+	<haxelib name="openfl" />
+	<haxelib name="starling" />
+	
+	<assets path="Assets" rename="assets" />
+	
+</project>
