@@ -38,6 +38,7 @@ class WallBall extends Sprite implements IAnimatable {
   public static inline var MXT = 1/30;
   public static inline var MIN = 2;
   public static inline var MAX = 49;
+  public static inline var SCALE = 4;
   public static var DIRS:Map<Dir,Point> = [
     NE => new Point(1,-1),
     SE => new Point(1,1),
@@ -87,13 +88,14 @@ class WallBall extends Sprite implements IAnimatable {
   }
 
   private function onClick(e:MouseEvent) {
-    if (e.type == MouseEvent.CLICK) {
-      setup(cast Math.min(MAX,++level));
-      bridge.lives(level);
-    } else {
-      setup(2);
-      bridge.lives(level);
+    if (e.type == MouseEvent.RIGHT_CLICK) {
+      upDown = !upDown;
+      if (upDown) bridge.cursor("ns-resize");
+      if (!upDown) bridge.cursor("ew-resize");
+      return;
     }
+
+    if (e.type != MouseEvent.CLICK) return;
   }
 
   public function advanceTime(time:Float):Void {
@@ -106,6 +108,7 @@ class WallBall extends Sprite implements IAnimatable {
     layingBrick = false;
     level = lvl;
     lives = level;
+    self.bridge.lives(level);
 
     for (i in 0...MAX) self.removeChild(balls[i]);
     for (i in 0...level) {

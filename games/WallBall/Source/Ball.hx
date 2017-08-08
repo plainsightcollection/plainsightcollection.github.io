@@ -141,7 +141,8 @@ class Ball extends Image implements IAnimatable {
     if (x < 0 || x >= C.WIDTH) return true;
     if (y < 0 || y >= C.HEIGHT) return true;
 
-    return (C.playfields[0].getPixel32(Math.round(x/4),Math.round(y/4)) >> 24!= 0);
+    return (C.playfields[0].getPixel32(Math.round(x/C.SCALE),
+                                       Math.round(y/C.SCALE)) >> 24!= 0);
   }
 
 }
