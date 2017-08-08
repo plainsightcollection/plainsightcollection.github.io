@@ -119,11 +119,21 @@ class WallBall extends Sprite implements IAnimatable {
     if (e.type != MouseEvent.CLICK) return;
     if (layingBrick) return;
 
-    layingBrick = true;
 
     var x:Int = Math.round(e.localX/SCALE)*4;
     var y:Int = Math.round(e.localY/SCALE)*4;
 
+
+    if (walled(x-12,y-12) ||
+        walled(x+12,y-12) ||
+        walled(x-12,y+12) ||
+        walled(x+12,y+12)
+       ) {
+      trace("denied");
+      return;
+    }
+
+    layingBrick = true;
     mason.begin(x,y);
 
   }
@@ -154,10 +164,31 @@ class WallBall extends Sprite implements IAnimatable {
     updateBackground(new Rectangle(0,0,WIDTH,HEIGHT),0x00000000);
 
     for (i in 0...MAX) self.removeChild(balls[i]);
+
+    var tooTight = false;
+    var a = new Point(0,0);
+    var b = new Point(0,0);
     for (i in 0...level) {
-      balls[i].cx = Math.floor(Math.random()*WIDTH);
-      balls[i].cy = Math.floor(Math.random()*HEIGHT);
       balls[i].v = [NE,SE,SW,NW][Math.floor(Math.random()*4)];
+
+      do {
+        balls[i].cx = Math.floor(Math.random()*WIDTH);
+        balls[i].cy = Math.floor(Math.random()*HEIGHT);
+        a.x = balls[i].cx;
+        a.y = balls[i].cy;
+        
+        tooTight = false;
+        for (j in 0...i) {
+          b.x = balls[j].cx;
+          b.y = balls[j].cy;
+          if (Point.distance(a,b) >= D) continue;
+          tooTight = true;
+          trace("tight!");
+          break;
+        }
+
+      } while(tooTight);
+
       self.addChild(balls[i]);
     }
   }
