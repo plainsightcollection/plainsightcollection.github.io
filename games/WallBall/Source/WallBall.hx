@@ -173,6 +173,8 @@ class WallBall extends Sprite implements IAnimatable {
       balls[i].v = [NE,SE,SW,NW][Math.floor(Math.random()*4)];
 
       do {
+        balls[i].sensorReset();
+
         balls[i].cx = Math.floor(Math.random()*WIDTH);
         balls[i].cy = Math.floor(Math.random()*HEIGHT);
         a.x = balls[i].cx;
