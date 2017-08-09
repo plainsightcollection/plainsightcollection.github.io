@@ -10,6 +10,7 @@ class Main extends Sprite {
     super ();
     
     WallBall.nativeStage = stage;
+
     starling = new Starling (WallBall, stage);
     starling.showStats = true;
     starling.start ();

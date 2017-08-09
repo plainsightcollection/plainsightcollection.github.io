@@ -47,6 +47,7 @@ class WallBall extends Sprite implements IAnimatable {
   public static inline var MSN = 24;
   public static inline var SWIDTH = 172;
   public static inline var SHEIGHT = 92;
+  public static inline var GOAL = 75;
   public static var DIRS:Map<Dir,Point> = [
     NE => new Point(1,-1),
     SE => new Point(1,1),
@@ -150,7 +151,7 @@ class WallBall extends Sprite implements IAnimatable {
   }
 
   public static function setup(lvl:Int):Void {
-    if (lvl > 49) lvl = 49;
+    if (lvl > MAX) lvl = MAX;
     trace("game over!");
     layingBrick = false;
     level = lvl;
@@ -161,7 +162,7 @@ class WallBall extends Sprite implements IAnimatable {
     mason.end(0);
     mason.end(1);
 
-    updateBackground(new Rectangle(0,0,WIDTH,HEIGHT),0x00000000);
+    updateBackground(new Rectangle(0,0,SWIDTH,SHEIGHT),0x00000000);
 
     for (i in 0...MAX) self.removeChild(balls[i]);
 
@@ -198,7 +199,7 @@ class WallBall extends Sprite implements IAnimatable {
     if (y < 0 || y >= HEIGHT) return true;
 
     return (playfields[0].getPixel32(Math.round(x/SCALE),
-                                       Math.round(y/SCALE)) >> 24!= 0);
+                                       Math.round(y/SCALE)) >> 24 != 0);
   }
 
   public static function updateBackground(rect:Rectangle,color:Int) {
@@ -218,7 +219,6 @@ class WallBall extends Sprite implements IAnimatable {
       playfields[1].floodFill(Math.round(balls[i].cx/4),Math.round(balls[i].cy/4),0xFFFF0000);
     }
     playfields[0].lock();
-    playfields[1].unlock();
     var color:UInt;
     var count = 0;
     for (i in 0...SWIDTH) {
@@ -231,11 +231,11 @@ class WallBall extends Sprite implements IAnimatable {
       }
     }
     playfields[1].unlock();
-    updateBackground(new Rectangle(0,0,0,0),0);
     playfields[0].unlock();
+    updateBackground(new Rectangle(0,0,0,0),0);
     var per = Math.round(100*count/(SWIDTH*SHEIGHT));
     bridge.percent(per);
-    if (per >= 75) setup(++level);
+    if (per >= GOAL) setup(++level);
   }
 
 }
