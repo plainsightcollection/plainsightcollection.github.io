@@ -11,13 +11,13 @@ var Bridge = function() {
 };
 
 Bridge.prototype = {
-	,cursor: function(cur) {
+	cursor: function(cur) {
     this.openflContent.style.setProperty("cursor", cur);
-	}
+	},
 	lives: function(lvs) {
     this.livesContent.innerHTML = lvs;
-	}
-	,percent: function(per) {
+	},
+	percent: function(per) {
     this.percentContent.innerHTML = per + '%';
 	}
 };
