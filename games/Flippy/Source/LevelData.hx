@@ -1,6 +1,6 @@
 package;
 
-class Levels {
+class LevelData {
   private var levels:Array<String>;
   
   public function new() {

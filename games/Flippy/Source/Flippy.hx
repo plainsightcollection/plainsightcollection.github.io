@@ -35,12 +35,12 @@ class Flippy extends Sprite {
   private var right:Rectangle;
   private var reset:Rectangle;
 
-  private var levels:Levels;
+  private var levelData:LevelData;
 
   public function new() {
     super();
 
-    levels = new Levels();
+    levelData = new LevelData();
 
     left = new Rectangle(19,379,41,32);
     right = new Rectangle(73,379,41,32);
