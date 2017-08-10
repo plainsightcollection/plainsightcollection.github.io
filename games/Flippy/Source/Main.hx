@@ -6,7 +6,6 @@ import starling.core.Starling;
 class Main extends Sprite {
   private var starling:Starling;
   
-  
   public function new () {
     super ();
     
