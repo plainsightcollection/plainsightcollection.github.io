@@ -5,6 +5,8 @@ import starling.display.Quad;
 import starling.textures.Texture;
 import starling.display.Image;
 import starling.events.Event;
+import starling.core.Starling;
+import starling.animation.Tween;
 
 import openfl.display.BitmapData;
 import openfl.geom.Rectangle;
@@ -23,6 +25,7 @@ class Flippy extends Sprite {
   public static inline var CLR = 0xFF44D62C;
   public static inline var COLS = 8;
   public static inline var ROWS = 5;
+  public static inline var DUR = 1/5;
 
   private var hLinks:Array<Quad>;
   private var vLinks:Array<Quad>;
@@ -181,7 +184,9 @@ class Flippy extends Sprite {
       return;
     }
     if (reset.contains(e.localX,e.localY)) {
-      trace("reset");
+      levels[current] = levelData.getLevel(current);
+      view();
+      return;
     }
 
     if (e.localX < ML) return;
@@ -191,7 +196,9 @@ class Flippy extends Sprite {
 
     var idx = Math.ceil((e.localX-ML)/SIZE-1) + 
               Math.ceil((e.localY-MT)/SIZE-1)*COLS;
-    trace(idx);
+
+    move(idx);
+
   }
 
   private function clear():Void {
@@ -225,6 +232,51 @@ class Flippy extends Sprite {
 
     locked = false;
 
+  }
+
+  private function move(tile:Int):Void {
+    var moves = levels[current].moves[tile];
+
+    if (moves.length == 0) return;
+
+    locked = true;
+
+    for (i in 0...moves.length) {
+      var mv = moves[i];
+      var tween:Tween;
+
+      tween = new Tween(dragons[mv],DUR);
+      if (levels[current].dragonStates[mv]) {
+        tween.fadeTo(0);
+      } else {
+        tween.fadeTo(1);
+      }
+
+      Starling.current.juggler.add(tween);
+
+      tween = new Tween(skulls[mv],DUR);
+      if (levels[current].dragonStates[mv]) {
+        tween.fadeTo(1);
+      } else {
+        tween.fadeTo(0);
+      }
+
+
+      if (i == moves.length-1) {
+        tween.onComplete = function() {
+          for (mv in moves) 
+            levels[current].dragonStates[mv] = 
+              !levels[current].dragonStates[mv];
+          locked = false;
+        }
+      }
+
+      Starling.current.juggler.add(tween);
+
+    }
+  }
+
+  private function win():Void {
   }
 
 }
