@@ -237,8 +237,6 @@ class Flippy extends Sprite {
   private function move(tile:Int):Void {
     var moves = levels[current].moves[tile];
 
-    trace(moves);
-
     if (moves.length == 0) return;
 
     locked = true;

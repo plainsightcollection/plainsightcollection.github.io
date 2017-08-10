@@ -35,6 +35,67 @@ X X X X X X X X
                
 X X X X X X X X']);
 
+    //3
+    levels.push(['
+X 0 X X 0 X X X
+  |     |      
+1-0-0-0-0-1 X X
+  |     |      
+X 0 X X 0 X X X
+               
+X X X X X X X X
+               
+X X X X X X X X']);
+
+    //X
+    levels.push(['
+0-0 X X X X 0-0
+| |           |
+1 1 X 1 1 X 1-1
+      | |      
+X X X 0-0 X X X
+      | |      
+0-0 X 1 1 X 0 0
+|           | |
+1-1 X X X X 1-1']);
+
+    //X
+    levels.push(['
+1-0 X X X X 0-0
+| |           |
+0 1-0-0 0-0-0-1
+      | |      
+X X X 0-0 X X X
+      | |      
+0-0-0-0 0-0-0 0
+|           | |
+0-1 X X X X 0-1']);
+
+    //X
+    levels.push(['
+0-1 X X X X 0-0
+| |           |
+0 0-0-0 0-0-0-0
+|     | |     |
+1 X X 0-0 X X 1
+|     | |     |
+0-0-0-0 0-0-0 0
+|           | |
+0-1 X X X X 0-0']);
+
+    //X
+    levels.push(['
+X X X X X X X X
+               
+X X X X X X X X
+               
+X X X X X X X X
+               
+X X X X X X X X
+               
+X X X X X X X X']);
+
+
     length = 0;
 
     for (i in 0...levels.length) {
@@ -92,7 +153,7 @@ X X X X X X X X']);
           }
         }
 
-        if (i > 0 && hBarStates[tile-1])
+        if (i > 0 && hBarStates[tile-1-j])
           subMoves.push(tile-1);
         if (j > 0 && vBarStates[tile-8])
           subMoves.push(tile-8);
