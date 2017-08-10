@@ -237,6 +237,8 @@ class Flippy extends Sprite {
   private function move(tile:Int):Void {
     var moves = levels[current].moves[tile];
 
+    trace(moves);
+
     if (moves.length == 0) return;
 
     locked = true;
@@ -267,7 +269,18 @@ class Flippy extends Sprite {
           for (mv in moves) 
             levels[current].dragonStates[mv] = 
               !levels[current].dragonStates[mv];
-          locked = false;
+          var clear = true;
+          for (st in levels[current].dragonStates) {
+            if (st) {
+              clear = false;
+              break;
+            }
+          }
+          if (clear) {
+            win();
+          } else {
+            locked = false;
+          }
         }
       }
 
@@ -277,6 +290,27 @@ class Flippy extends Sprite {
   }
 
   private function win():Void {
+    var tween:Tween;
+    for (i in 0...hLinks.length) {
+      tween = new Tween(hLinks[i],DUR);
+      tween.fadeTo(0);
+      Starling.current.juggler.add(tween);
+    }
+    for (i in 0...hLinks.length) {
+      tween = new Tween(vLinks[i],DUR);
+      tween.fadeTo(0);
+      if (i == hLinks.length-1)
+        tween.onComplete = function() {
+          for (i in 0...levels[current].hBarStates.length)
+            levels[current].hBarStates[i] = false;
+          for (i in 0...levels[current].vBarStates.length)
+            levels[current].vBarStates[i] = false;
+          for (i in 0...levels[current].moves.length)
+            levels[current].moves[i] = [];
+          locked = false;
+        }
+      Starling.current.juggler.add(tween);
+    }
   }
 
 }
