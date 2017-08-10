@@ -106,7 +106,7 @@ class WallBall extends Sprite implements IAnimatable {
     addChild(img);
     addChild(mason);
     Starling.current.juggler.add(this);
-    setup(49);
+    setup(2);
   }
 
   private function onClick(e:MouseEvent) {
