@@ -10,7 +10,7 @@ class Main extends Sprite {
     super ();
     
     starling = new Starling(Flippy, stage);
-    starling.showStats = true;
+    //starling.showStats = true;
     starling.start ();
     
   }
