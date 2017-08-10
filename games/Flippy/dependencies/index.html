@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Flippy Fantasy</title>
+	<!--<meta id="viewport" name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	
+	
+	<link rel="shortcut icon" type="image/png" href="./favicon.png">-->
+	<script type="text/javascript" src="./lib/howler.min.js"></script>
+	<script type="text/javascript" src="./lib/pako.min.js"></script>
+	<script type="text/javascript" src="./Flippy.js"></script>
+	
+	<script>
+		window.addEventListener ("touchmove", function (event) { event.preventDefault (); }, false);
+		if (typeof window.devicePixelRatio != 'undefined' && window.devicePixelRatio > 2) {
+			var meta = document.getElementById ("viewport");
+			meta.setAttribute ('content', 'width=device-width, initial-scale=' + (2 / window.devicePixelRatio) + ', user-scalable=no');
+		}
+	</script>
+	<style>
+		html,body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      overflow: hidden;
+    }
+
+		#openfl-content {
+      background: #000000;
+    }
+	</style>
+</head>
+<body>
+	
+	<div id="openfl-content"></div>
+	<script type="text/javascript">
+    var w = 800;
+    var h = 600;
+    var ct = document.getElementById("openfl-content");
+    ct.style.setProperty("width",w+"px");
+    ct.style.setProperty("height",h+"px");
+    var lft = Math.max(0,Math.round((window.innerWidth-w)/2));
+    var tp = Math.max(0,Math.round((window.innerHeight-h)/2));
+    ct.style.setProperty("margin-left",lft+"px");
+    ct.style.setProperty("margin-top",tp+"px");
+		lime.embed ("Flippy", "openfl-content", w, h, { parameters: {} });
+	</script>
+	
+</body>
+</html>

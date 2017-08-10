@@ -4,7 +4,7 @@
 	<meta title="Flippy" package="com.sample.flippy" version="0.0.0"/>
 	<app main="Main" path="Export" file="Flippy" swf-version="12.0" />
 	
-	<window width="640" height="480" background="#222222" />
+	<window width="800" height="600" background="#222222" />
 	
 	<source path="Source" />
 	
