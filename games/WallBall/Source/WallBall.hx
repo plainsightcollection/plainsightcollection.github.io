@@ -106,7 +106,7 @@ class WallBall extends Sprite implements IAnimatable {
     addChild(img);
     addChild(mason);
     Starling.current.juggler.add(this);
-    setup(2);
+    setup(49);
   }
 
   private function onClick(e:MouseEvent) {
@@ -173,10 +173,8 @@ class WallBall extends Sprite implements IAnimatable {
       balls[i].v = [NE,SE,SW,NW][Math.floor(Math.random()*4)];
 
       do {
-        balls[i].sensorReset();
-
-        balls[i].cx = Math.floor(Math.random()*WIDTH);
-        balls[i].cy = Math.floor(Math.random()*HEIGHT);
+        balls[i].cx = Math.floor(Math.random()*(WIDTH-R*2-1)+R+1);
+        balls[i].cy = Math.floor(Math.random()*(HEIGHT-R*2-1)+R+1);
         a.x = balls[i].cx;
         a.y = balls[i].cy;
         

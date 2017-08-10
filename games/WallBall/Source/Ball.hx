@@ -34,6 +34,12 @@ class Ball extends Image implements IAnimatable {
 
     if (top && bottom || left && right) {
       trace("Ball trouble!");
+
+      while(cx-C.R < 0) cx++;
+      while(cx+C.R >= C.WIDTH) cx--;
+      while(cy-C.R < 0) cy++;
+      while(cy+C.R >= C.HEIGHT) cy--;
+
       return;
     }
 
@@ -145,13 +151,6 @@ class Ball extends Image implements IAnimatable {
           if (C.lives < 1) C.setup(2);
         }
     }
-  }
-
-  public function sensorReset():Void {
-    top = false;
-    right = false;
-    bottom = false;
-    left = false;
   }
 
 }
