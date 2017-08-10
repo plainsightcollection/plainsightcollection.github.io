@@ -17,6 +17,8 @@ class Flippy extends Sprite {
   private static inline var SIZE = 72;
   private static inline var LINK = 14;
   private static inline var CLR = 0xFF44D62C;
+  private static inline var COLS = 8;
+  private static inline var ROWS = 5;
 
   private var hLinks:Array<Quad>;
   private var vLinks:Array<Quad>;
@@ -34,9 +36,13 @@ class Flippy extends Sprite {
   public function new() {
     super();
 
+    left = new Rectangle(19,379,41,32);
+    right = new Rectangle(73,379,41,32);
+    reset = new Rectangle(481,378,95,32);
+
     //placeholders
 
-    var playfield = new Quad(SIZE*8,SIZE*5,0xFF808080);
+    var playfield = new Quad(SIZE*COLS,SIZE*ROWS,0xFF808080);
     playfield.x = ML;
     playfield.y = MT;
     addChild(playfield);
@@ -45,24 +51,21 @@ class Flippy extends Sprite {
     leftArrow.x = 19;
     leftArrow.y = 379;
     addChild(leftArrow);
-    left = new Rectangle(19,379,41,32);
 
     var rightArrow = new Quad(41,32,0xFF808080);
     rightArrow.x = 73;
     rightArrow.y = 379;
     addChild(rightArrow);
-    right = new Rectangle(73,379,41,32);
 
     var resetQuad = new Quad(95,32,0xFF808080);
     resetQuad.x = 481;
     resetQuad.y = 378;
     addChild(resetQuad);
-    reset = new Rectangle(481,378,95,32);
 
     var q:Quad;
 
     hLinks = new Array();
-    for (j in 0...5) {
+    for (j in 0...ROWS) {
       for (i in 0...7) {
         q = new Quad(SIZE,LINK,CLR);
         q.x = ML+i*SIZE+(SIZE/2);
@@ -74,7 +77,7 @@ class Flippy extends Sprite {
 
     vLinks = new Array();
     for (j in 0...4) {
-      for (i in 0...8) {
+      for (i in 0...COLS) {
         q = new Quad(LINK,SIZE,CLR);
         q.x = ML+i*SIZE+(SIZE-LINK)/2;
         q.y = MT+j*SIZE+(SIZE/2);
@@ -112,8 +115,8 @@ class Flippy extends Sprite {
 
     dragons = new Array();
     skulls = new Array();
-    for (j in 0...5) {
-      for (i in 0...8) {
+    for (j in 0...ROWS) {
+      for (i in 0...COLS) {
         img = new Image(skullTex);
         img.x = ML+i*SIZE;
         img.y = MT+j*SIZE;
@@ -127,13 +130,6 @@ class Flippy extends Sprite {
         addChild(img);
       }
     }
-
-    /*
-    q = new Quad(72,72,0xFFFFFFFF);
-    q.x = ML;
-    q.y = MT;
-    addChild(q);
-    */
 
     nativeStage.addEventListener(MouseEvent.CLICK, onClick);
   }
@@ -151,12 +147,12 @@ class Flippy extends Sprite {
     }
 
     if (e.localX < ML) return;
-    if (e.localX > ML+SIZE*8) return;
+    if (e.localX > ML+SIZE*COLS) return;
     if (e.localY < MT) return;
-    if (e.localY > MT+SIZE*5) return;
+    if (e.localY > MT+SIZE*ROWS) return;
 
     var idx = Math.ceil((e.localX-ML)/SIZE-1) + 
-              Math.ceil((e.localY-MT)/SIZE-1)*8;
+              Math.ceil((e.localY-MT)/SIZE-1)*COLS;
     trace(idx);
   }
 
