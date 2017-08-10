@@ -7,8 +7,11 @@ import starling.display.Image;
 
 import openfl.display.BitmapData;
 import openfl.geom.Rectangle;
+import openfl.events.MouseEvent;
 
 class Flippy extends Sprite {
+  public static var nativeStage:openfl.display.Stage;
+
   private static inline var MT = 11;
   private static inline var ML = 11;
   private static inline var SIZE = 72;
@@ -125,6 +128,36 @@ class Flippy extends Sprite {
       }
     }
 
+    /*
+    q = new Quad(72,72,0xFFFFFFFF);
+    q.x = ML;
+    q.y = MT;
+    addChild(q);
+    */
+
+    nativeStage.addEventListener(MouseEvent.CLICK, onClick);
+  }
+
+  private function onClick(e:MouseEvent) {
+
+    if (left.contains(e.localX,e.localY)) {
+      trace("left");
+    }
+    if (right.contains(e.localX,e.localY)) {
+      trace("right");
+    }
+    if (reset.contains(e.localX,e.localY)) {
+      trace("reset");
+    }
+
+    if (e.localX < ML) return;
+    if (e.localX > ML+SIZE*8) return;
+    if (e.localY < MT) return;
+    if (e.localY > MT+SIZE*5) return;
+
+    var idx = Math.ceil((e.localX-ML)/SIZE-1) + 
+              Math.ceil((e.localY-MT)/SIZE-1)*8;
+    trace(idx);
   }
 
 }

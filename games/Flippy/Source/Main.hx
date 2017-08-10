@@ -8,6 +8,8 @@ class Main extends Sprite {
   
   public function new () {
     super ();
+
+    Flippy.nativeStage = stage;
     
     starling = new Starling(Flippy, stage);
     //starling.showStats = true;
