@@ -9,6 +9,8 @@ import openfl.display.BitmapData;
 import openfl.geom.Rectangle;
 import openfl.events.MouseEvent;
 
+import Levels;
+
 class Flippy extends Sprite {
   public static var nativeStage:openfl.display.Stage;
 
@@ -33,8 +35,12 @@ class Flippy extends Sprite {
   private var right:Rectangle;
   private var reset:Rectangle;
 
+  private var levels:Levels;
+
   public function new() {
     super();
+
+    levels = new Levels();
 
     left = new Rectangle(19,379,41,32);
     right = new Rectangle(73,379,41,32);
