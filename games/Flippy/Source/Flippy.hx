@@ -1,6 +1,6 @@
 package;
 
-import starling.core.Starling;
+import starling.display.Sprite;
 
 class Flippy extends Sprite {
   public function new() {
