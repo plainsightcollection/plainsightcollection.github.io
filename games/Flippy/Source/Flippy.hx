@@ -6,6 +6,7 @@ import starling.textures.Texture;
 import starling.display.Image;
 
 import openfl.display.BitmapData;
+import openfl.geom.Rectangle;
 
 class Flippy extends Sprite {
   private static inline var MT = 11;
@@ -23,6 +24,10 @@ class Flippy extends Sprite {
   private var dragons:Array<Image>;
   private var skulls:Array<Image>;
 
+  private var left:Rectangle;
+  private var right:Rectangle;
+  private var reset:Rectangle;
+
   public function new() {
     super();
 
@@ -37,16 +42,19 @@ class Flippy extends Sprite {
     leftArrow.x = 19;
     leftArrow.y = 379;
     addChild(leftArrow);
+    left = new Rectangle(19,379,41,32);
 
     var rightArrow = new Quad(41,32,0xFF808080);
     rightArrow.x = 73;
     rightArrow.y = 379;
     addChild(rightArrow);
+    right = new Rectangle(73,379,41,32);
 
-    var reset = new Quad(95,32,0xFF808080);
-    reset.x = 481;
-    reset.y = 378;
-    addChild(reset);
+    var resetQuad = new Quad(95,32,0xFF808080);
+    resetQuad.x = 481;
+    resetQuad.y = 378;
+    addChild(resetQuad);
+    reset = new Rectangle(481,378,95,32);
 
     var q:Quad;
 
