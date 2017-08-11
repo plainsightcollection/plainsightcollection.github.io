@@ -1,5 +1,6 @@
-var base = "http://172.17.0.12:8000/Export/html5/bin/";
 document.title = t;
+var base = "http://172.17.0.12:8000/Export/html5/bin/";
+var body = document.getElementsByTagName("body")[0];
 
 var code = "";
 
@@ -19,6 +20,20 @@ var report = function(e) {
     try {
       eval(code);
 
+      var a = document.createElement("a");
+      a.href = "#";
+      a.style.setProperty("position","fixed");
+      a.onclick = function() {
+        window.location.reload(false); 
+      }
+
+      var x = document.createElement("img");
+      x.src = base + "assets/x.svg";
+      x.style.setProperty("width","24px");
+      x.style.setProperty("height","24px");
+
+      a.appendChild(x);
+
       var ct = document.createElement("div");
       ct.id = "openfl-content";
       var w = 800;
@@ -26,12 +41,20 @@ var report = function(e) {
       ct.style.setProperty("width",w + "px");
       ct.style.setProperty("height",h + "px");
       ct.style.setProperty("position","fixed");
+      ct.style.setProperty("user-select","none");
+
       var lft = Math.max(0,Math.round((window.innerWidth-w)/2));
       var tp = Math.max(0,Math.round((window.innerHeight-h)/2));
+
       ct.style.setProperty("left",lft+"px");
       ct.style.setProperty("top",tp+"px");
 
-      document.getElementsByTagName("body")[0].appendChild(ct);
+      a.style.setProperty("left",(w-12)+lft+"px");
+      a.style.setProperty("top",tp-12+"px");
+
+      body.appendChild(ct);
+      body.appendChild(a);
+
 		  lime.embed ("Flippy", "openfl-content", w, h, { parameters: {} });
 
     } catch(e) {
