@@ -49,7 +49,7 @@ var report = function(e) {
         for (var i = 0; i < ps.length; i++) ps[i].style.setProperty("visibility","hidden");
       }
 
-      window.onkeydown = function(e) {console.log(e.keyCode);}
+      window.onkeydown = function(e) {console.log(e.keyCode);};
 
       var x = document.createElement("img");
       x.className = "plainsight";
