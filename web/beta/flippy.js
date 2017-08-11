@@ -1,5 +1,5 @@
 document.title = t;
-var base = "http://172.17.0.12:8000/Export/html5/bin/";
+var base = "https://plainsightcollection.github.io/web/beta";
 var body = document.getElementsByTagName("body")[0];
 
 var code = "";
