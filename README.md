@@ -1,6 +1,7 @@
 <p align="center"><img src="https://plainsightcollection.github.io/web/resources/svg/logo.svg" width="25%"/></p>
 
-The Plainsight Collection attempts to preserve office 
+The Plainsight Collection attempts to preserve office :w
+
 
 ### WallBall
 
