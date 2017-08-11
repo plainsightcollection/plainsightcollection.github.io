@@ -27,7 +27,13 @@ var report = function(e) {
 
       var sts = document.createElement("div");
       sts.className = "plainsight";
-      sts.innerHTML = "Lives: <div id='lives'></div> Percent: <div id='percent'></div>";
+      sts.innerHTML = "The Wall is <span id='percent'></span> Built. You Have <span id='lives'></span> More Chances to Speak Now!";
+      sts.style.setProperty("font-size","24px");
+      sts.style.setProperty("width",w + "px");
+      sts.style.setProperty("text-align","center");
+      sts.style.setProperty("color","white");
+      sts.style.setProperty("position","fixed");
+      sts.style.setProperty("z-index","1000000");
 
       var a = document.createElement("a");
       a.className = "plainsight";
@@ -72,6 +78,10 @@ var report = function(e) {
 
       bg.style.setProperty("left",lft+"px");
       bg.style.setProperty("top",tp+"px");
+
+      sts.style.setProperty("left",lft+"px");
+      sts.style.setProperty("top",(w-52)+tp+"px");
+
 
       body.appendChild(bg);
       body.appendChild(sts);
