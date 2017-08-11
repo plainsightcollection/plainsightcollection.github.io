@@ -34,7 +34,7 @@ Just create a bookmark with this URL:
 
 ### Credits
 
-gfx by [kitthawk](http://montrose.is/sketching) 
+gfx by [kittyhawk](http://montrose.is/sketching) 
 
 code by [tjay](https://twitter.com/gtrevorjay)
 
