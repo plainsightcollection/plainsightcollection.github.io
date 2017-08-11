@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TextureAtlas imagePath="wallball.png" width="1024" height="1024">
+  <SubTexture name="topper" x="1" y="741" width="24" height="24"/>
+  <SubTexture name="bricks" x="1" y="1" width="688" height="368"/>
+  <SubTexture name="sand" x="1" y="371" width="688" height="368"/>
+  <SubTexture name="ball" x="1" y="767" width="19" height="19"/>
+</TextureAtlas>
