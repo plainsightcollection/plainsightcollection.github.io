@@ -45,11 +45,11 @@ var report = function(e) {
       a.style.setProperty("user-select","none");
       a.onclick = function() {
         var ps = document.getElementsByClassName("plainsight");
-        console.log(ps);
-        for (var e in ps)
-          if (e.style != undefined) e.style.setProperty("display","none");
-        window.location.reload(false); 
+        for (i = 0; i < cars.length; i++) { 
+        for (var i = 0; i < ps.length; i++) ps[i].style.setProperty("visibility","hidden");
       }
+
+      window.onkeydown = function(e) {console.log(e.keyCode);}
 
       var x = document.createElement("img");
       x.className = "plainsight";
