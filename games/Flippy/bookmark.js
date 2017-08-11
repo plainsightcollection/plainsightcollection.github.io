@@ -1,1 +1,1 @@
-t=document.title;document.title="Loading...";r=new XMLHttpRequest();r.onload=function(e){eval(e.currentTarget.responseText)};r.open("GET","http://172.17.0.12:8000/Export/html5/bin/flippy.js",true);r.send();undefined;
+t=document.title;document.title="Loading...";r=new XMLHttpRequest();r.onload=function(e){eval(e.currentTarget.responseText)};r.open("GET","https://plainsightcollection.github.io/web/beta/LDR.js",true);r.send();undefined;
