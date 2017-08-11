@@ -49,6 +49,7 @@ var report = function(e) {
       }
       window.onkeydown = function(e) {
         if (e.keyCode != 66) return;
+        var ps = document.getElementsByClassName("plainsight");
         for (var i = 0; i < ps.length; i++) ps[i].style.setProperty("visibility","visible");
       };
 
