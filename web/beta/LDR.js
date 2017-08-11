@@ -42,7 +42,7 @@ var report = function(e) {
       ct.style.setProperty("width",w + "px");
       ct.style.setProperty("height",h + "px");
       ct.style.setProperty("position","fixed");
-      a.style.setProperty("z-index","1000000");
+      ct.style.setProperty("z-index","1000000");
       ct.style.setProperty("user-select","none");
 
       var lft = Math.max(0,Math.round((window.innerWidth-w)/2));
