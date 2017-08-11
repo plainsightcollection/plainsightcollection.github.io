@@ -7,10 +7,14 @@ import starling.display.Image;
 import starling.events.Event;
 import starling.core.Starling;
 import starling.animation.Tween;
+import starling.textures.TextureAtlas;
 
 import openfl.display.BitmapData;
 import openfl.geom.Rectangle;
 import openfl.events.MouseEvent;
+import openfl.utils.Assets;
+
+import haxe.xml.Parser;
 
 import Level;
 import LevelData;
@@ -61,27 +65,19 @@ class Flippy extends Sprite {
     right = new Rectangle(73,379,41,32);
     reset = new Rectangle(481,378,95,32);
 
-    //placeholders
+    var bmp:BitmapData;
 
-    var playfield = new Quad(SIZE*COLS,SIZE*ROWS,0xFF808080);
-    playfield.x = ML;
-    playfield.y = MT;
+    bmp = Assets.getBitmapData("assets/flippy.png");
+    var tex = Texture.fromBitmapData(bmp);
+    bmp.dispose();
+
+    var xml = Parser.parse(Assets.getText("assets/flippy.xml"));
+    var atlas = new TextureAtlas(tex,xml);
+
+    var playfield = new Image(atlas.getTexture("background"));
+    playfield.x = 0;
+    playfield.y = 0;
     addChild(playfield);
-
-    var leftArrow = new Quad(41,32,0xFF808080);
-    leftArrow.x = 19;
-    leftArrow.y = 379;
-    addChild(leftArrow);
-
-    var rightArrow = new Quad(41,32,0xFF808080);
-    rightArrow.x = 73;
-    rightArrow.y = 379;
-    addChild(rightArrow);
-
-    var resetQuad = new Quad(95,32,0xFF808080);
-    resetQuad.x = 481;
-    resetQuad.y = 378;
-    addChild(resetQuad);
 
     var q:Quad;
 
@@ -109,30 +105,8 @@ class Flippy extends Sprite {
       }
     }
 
-    var bmp:BitmapData;
-    var cnv:openfl.display.Sprite;
-    var trans = new openfl.geom.Matrix();
-    trans.translate(SIZE/18,SIZE/18);
-
-    bmp = new BitmapData(SIZE,SIZE,true,0);
-    cnv = new openfl.display.Sprite();
-    cnv.graphics.beginFill(0xFFFF0000);
-    cnv.graphics.drawCircle(SIZE*4/9,SIZE*4/9,SIZE*4/9);
-    cnv.graphics.endFill();
-    bmp.draw(cnv,trans);
-
-    dragonTex = Texture.fromBitmapData(bmp);
-    bmp.dispose();
-
-    bmp = new BitmapData(SIZE,SIZE,true,0);
-    cnv = new openfl.display.Sprite();
-    cnv.graphics.beginFill(0xFF404040);
-    cnv.graphics.drawCircle(SIZE*4/9,SIZE*4/9,SIZE*4/9);
-    cnv.graphics.endFill();
-    bmp.draw(cnv,trans);
-
-    skullTex = Texture.fromBitmapData(bmp);
-    bmp.dispose();
+    dragonTex = atlas.getTexture("dragon");
+    skullTex = atlas.getTexture("skull");
 
     var img:Image;
 

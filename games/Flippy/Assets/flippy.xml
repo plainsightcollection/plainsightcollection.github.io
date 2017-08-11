@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TextureAtlas imagePath="flippy.png" width="1024" height="1024">
+  <SubTexture name="background" x="1" y="1" width="800" height="600"/>
+  <SubTexture name="dragon" x="803" y="1" width="72" height="72"/>
+  <SubTexture name="skull" x="877" y="1" width="72" height="72"/>
+</TextureAtlas>
