@@ -19,6 +19,19 @@ var report = function(e) {
     try {
       eval(code);
 
+      var w = 800;
+      var h = 600;
+
+      var bg = document.createElement("img");
+      bg.src = base + "assets/game_wallball_white.png";
+      bg.style.setProperty("position","fixed");
+      bg.style.setProperty("z-index","1000000");
+      bg.style.setProperty("width",w + "px");
+      bg.style.setProperty("height",h + "px");
+
+      var sts = document.createElement("div");
+      sts.innerHTML = "Lives: <div id='lives'></div> Percent: <div id='percent'></div>";
+
       var a = document.createElement("a");
       a.href = "#";
       a.style.setProperty("position","fixed");
@@ -37,8 +50,7 @@ var report = function(e) {
 
       var ct = document.createElement("div");
       ct.id = "openfl-content";
-      var w = 688;
-      var h = 368;
+
       ct.style.setProperty("width",w + "px");
       ct.style.setProperty("height",h + "px");
       ct.style.setProperty("position","fixed");
@@ -48,17 +60,23 @@ var report = function(e) {
       var lft = Math.max(0,Math.round((window.innerWidth-w)/2));
       var tp = Math.max(0,Math.round((window.innerHeight-h)/2));
 
-      ct.style.setProperty("left",lft+"px");
-      ct.style.setProperty("top",tp+"px");
+      ct.style.setProperty("left",56+lft+"px");
+      ct.style.setProperty("top",150+tp+"px");
 
       a.style.setProperty("left",(w-12)+lft+"px");
       a.style.setProperty("top",tp-12+"px");
 
+      bg.style.setProperty("left",lft+"px");
+      bg.style.setProperty("top",tp+"px");
+
+      body.appendChild(bg);
+      body.appendChild(sts);
       body.appendChild(ct);
       body.appendChild(a);
 
       document.title = t;
-		  lime.embed ("WallBall", "openfl-content", w, h, { parameters: {} });
+
+		  lime.embed ("WallBall", "openfl-content", 688, 368, { parameters: {} });
 
     } catch(e) {
       console.log(e);
