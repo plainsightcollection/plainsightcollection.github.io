@@ -28,7 +28,7 @@ var report = function(e) {
       var sts = document.createElement("div");
       sts.className = "plainsight";
       sts.innerHTML = "The Wall is <span id='percent'></span> Built. You Have <span id='lives'></span> More Chances to Speak Now!";
-      sts.style.setProperty("font-size","24px");
+      sts.style.setProperty("font-size","21px");
       sts.style.setProperty("font-weight","bold");
       sts.style.setProperty("text-shadow","rgba(0, 0, 0, 0.5) 3px 3px 2px");
       sts.style.setProperty("width",w + "px");
