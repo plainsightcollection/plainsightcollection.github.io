@@ -80,7 +80,7 @@ var report = function(e) {
       bg.style.setProperty("top",tp+"px");
 
       sts.style.setProperty("left",lft+"px");
-      sts.style.setProperty("top",(w-52)+tp+"px");
+      sts.style.setProperty("top",tp+"px");
 
 
       body.appendChild(bg);
