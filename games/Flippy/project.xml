@@ -12,5 +12,8 @@
 	<haxelib name="starling" />
 	
 	<assets path="Assets" rename="assets" />
+
+  <dependency path="dependencies/ldr.js" if="html5" />
+  <dependency path="dependencies/flippy.js" if="html5" />
 	
 </project>
