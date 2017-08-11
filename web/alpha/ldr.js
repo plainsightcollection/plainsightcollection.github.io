@@ -30,6 +30,7 @@ var report = function(e) {
       sts.innerHTML = "The Wall is <span id='percent'></span> Built. You Have <span id='lives'></span> More Chances to Speak Now!";
       sts.style.setProperty("font-size","24px");
       sts.style.setProperty("font-weight","bold");
+      sts.style.setProperty("text-shadow","black 3px 3px 2px");
       sts.style.setProperty("width",w + "px");
       sts.style.setProperty("text-align","center");
       sts.style.setProperty("color","white");
