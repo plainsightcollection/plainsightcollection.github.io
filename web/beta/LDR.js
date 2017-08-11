@@ -1,5 +1,5 @@
 document.title = t;
-var base = "https://plainsightcollection.github.io/web/beta";
+var base = "https://plainsightcollection.github.io/web/beta/";
 var body = document.getElementsByTagName("body")[0];
 
 var code = "";
