@@ -29,6 +29,7 @@ var report = function(e) {
       sts.className = "plainsight";
       sts.innerHTML = "The Wall is <span id='percent'></span> Built. You Have <span id='lives'></span> More Chances to Speak Now!";
       sts.style.setProperty("font-size","24px");
+      sts.style.setProperty("font-weight","bold");
       sts.style.setProperty("width",w + "px");
       sts.style.setProperty("text-align","center");
       sts.style.setProperty("color","white");
@@ -80,7 +81,7 @@ var report = function(e) {
       bg.style.setProperty("top",tp+"px");
 
       sts.style.setProperty("left",lft+"px");
-      sts.style.setProperty("top",tp+"px");
+      sts.style.setProperty("top",(w-52)+tp+"px");
 
 
       body.appendChild(bg);
