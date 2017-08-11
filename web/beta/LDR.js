@@ -1,4 +1,3 @@
-document.title = t;
 var base = "https://plainsightcollection.github.io/web/beta/";
 var body = document.getElementsByTagName("body")[0];
 
@@ -23,6 +22,8 @@ var report = function(e) {
       var a = document.createElement("a");
       a.href = "#";
       a.style.setProperty("position","fixed");
+      a.style.setProperty("z-index","1000000");
+      a.style.setProperty("user-select","none");
       a.onclick = function() {
         window.location.reload(false); 
       }
@@ -41,6 +42,7 @@ var report = function(e) {
       ct.style.setProperty("width",w + "px");
       ct.style.setProperty("height",h + "px");
       ct.style.setProperty("position","fixed");
+      a.style.setProperty("z-index","1000000");
       ct.style.setProperty("user-select","none");
 
       var lft = Math.max(0,Math.round((window.innerWidth-w)/2));
@@ -55,6 +57,7 @@ var report = function(e) {
       body.appendChild(ct);
       body.appendChild(a);
 
+      document.title = t;
 		  lime.embed ("Flippy", "openfl-content", w, h, { parameters: {} });
 
     } catch(e) {
