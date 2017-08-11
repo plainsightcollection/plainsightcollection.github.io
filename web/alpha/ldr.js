@@ -37,6 +37,7 @@ var report = function(e) {
       a.style.setProperty("user-select","none");
       a.onclick = function() {
         var ps = document.getElementsByClassName("plainsight");
+        console.log(ps);
         for (var e in ps) e.style.setProperty("display","none");
         window.location.reload(false); 
       }
