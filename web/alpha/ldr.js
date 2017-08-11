@@ -51,8 +51,8 @@ var report = function(e) {
       var ct = document.createElement("div");
       ct.id = "openfl-content";
 
-      ct.style.setProperty("width",w + "px");
-      ct.style.setProperty("height",h + "px");
+      ct.style.setProperty("width","688px");
+      ct.style.setProperty("height","368px");
       ct.style.setProperty("position","fixed");
       ct.style.setProperty("z-index","1000000");
       ct.style.setProperty("user-select","none");
