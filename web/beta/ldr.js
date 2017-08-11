@@ -6,7 +6,7 @@ var count = 0;
 
 var report = function(e) {
   code += e.currentTarget.responseText;
-  if (count++ == 3) {
+  if (count++ == 2) {
     try {
       eval(code);
 
@@ -41,8 +41,8 @@ var report = function(e) {
       ct.className = "plainsight";
       ct.id = "openfl-content";
 
-      ct.style.setProperty("width","688px");
-      ct.style.setProperty("height","368px");
+      ct.style.setProperty("width","800px");
+      ct.style.setProperty("height","600px");
       ct.style.setProperty("position","fixed");
       ct.style.setProperty("z-index","1000000");
       ct.style.setProperty("user-select","none");
@@ -50,8 +50,8 @@ var report = function(e) {
       var lft = Math.max(0,Math.round((window.innerWidth-w)/2));
       var tp = Math.max(0,Math.round((window.innerHeight-h)/2));
 
-      ct.style.setProperty("left",56+lft+"px");
-      ct.style.setProperty("top",150+tp+"px");
+      ct.style.setProperty("left",lft+"px");
+      ct.style.setProperty("top",tp+"px");
 
       a.style.setProperty("left",(w-12)+lft+"px");
       a.style.setProperty("top",tp-12+"px");
