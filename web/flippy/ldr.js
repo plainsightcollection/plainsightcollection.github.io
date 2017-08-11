@@ -1,4 +1,4 @@
-var base = "https://plainsightcollection.github.io/web/beta/";
+var base = "https://plainsightcollection.github.io/web/flippy/";
 var body = document.getElementsByTagName("body")[0];
 
 var code = "";

@@ -1,4 +1,4 @@
-var base = "https://plainsightcollection.github.io/web/alpha/";
+var base = "https://plainsightcollection.github.io/web/wallball/";
 var body = document.getElementsByTagName("body")[0];
 
 //element.setAttribute("class", newClass); //For Most Browsers
