@@ -4,6 +4,7 @@ import starling.display.Sprite;
 import starling.textures.Texture;
 import starling.animation.IAnimatable;
 import starling.display.Quad;
+import starling.display.Image;
 
 import WallBall as C;
 
@@ -11,7 +12,8 @@ class Mason extends Sprite implements IAnimatable {
   private var activeA:Bool;
   private var activeB:Bool;
   private var quadA:Quad;
-  private var quadB:Quad;
+  private var imgA:Image;
+  private var imgB:Image;
   private var quadC:Quad;
   private var xp:Int;
   private var yp:Int;
@@ -22,7 +24,8 @@ class Mason extends Sprite implements IAnimatable {
     super();
 
     quadA = new Quad(C.MSN,C.MSN,0xFFFF0000);
-    quadB = new Quad(C.MSN,C.MSN,0xFF0000FF);
+    imgA = new Image(C.atlas.getTexture("topper"));
+    imgB = new Image(C.atlas.getTexture("topper"));
     quadC = new Quad(C.MSN,C.MSN,0xFF0000FF);
   }
 
@@ -34,8 +37,11 @@ class Mason extends Sprite implements IAnimatable {
       quadA.x = x-(C.MSN/2);
       quadA.y = y-C.MSN;
 
-      quadB.x = x-(C.MSN/2);
-      quadB.y = y;
+      imgA.x = x-(C.MSN/2);
+      imgA.y = y-C.MSN;
+
+      imgB.x = x-(C.MSN/2);
+      imgB.y = y;
 
       xp = 0;
       yp = -1;
@@ -44,8 +50,11 @@ class Mason extends Sprite implements IAnimatable {
       quadA.x = x-(C.MSN-1);
       quadA.y = y-(C.MSN/2);
 
-      quadB.x = x;
-      quadB.y = y-(C.MSN/2);
+      imgA.x = x-(C.MSN-1);
+      imgA.y = y-(C.MSN/2);
+
+      imgB.x = x;
+      imgB.y = y-(C.MSN/2);
 
       xp = -1;
       yp = 0;
@@ -53,17 +62,16 @@ class Mason extends Sprite implements IAnimatable {
 
     quadA.width = C.MSN;
     quadA.height = C.MSN;
-    quadB.width = C.MSN;
-    quadB.height = C.MSN;
 
-    quadC.x = quadB.x;
-    quadC.y = quadB.y;
+    quadC.x = imgB.x;
+    quadC.y = imgB.y;
     quadC.width = C.MSN;
     quadC.height = C.MSN;
 
     addChild(quadA);
+    addChild(imgA);
     addChild(quadC);
-    addChild(quadB);
+    addChild(imgB);
 
     activeA = true;
     activeB = true;
@@ -78,6 +86,7 @@ class Mason extends Sprite implements IAnimatable {
         C.walls[0].y = C.HEIGHT*2;
         C.walls[0].width = 10;
         C.walls[0].height = 10;
+        removeChild(imgA);
         removeChild(quadA);
       }
       default: {
@@ -86,7 +95,7 @@ class Mason extends Sprite implements IAnimatable {
         C.walls[1].y = C.HEIGHT*2;
         C.walls[1].width = 10;
         C.walls[1].height = 10;
-        removeChild(quadB);
+        removeChild(imgB);
         removeChild(quadC);
       }
     }
@@ -99,6 +108,9 @@ class Mason extends Sprite implements IAnimatable {
     if (activeA) {
       quadA.x += xp*C.DW*time;
       quadA.y += yp*C.DW*time;
+
+      imgA.x += xp*C.DW*time;
+      imgA.y += yp*C.DW*time;
 
       quadA.width = xo-quadA.x-yp*(C.MSN/2);
       quadA.height = yo-quadA.y-xp*(C.MSN/2);
@@ -123,14 +135,14 @@ class Mason extends Sprite implements IAnimatable {
     }
 
     if (activeB) {
-      quadB.x -= xp*C.DW*time;
-      quadB.y -= yp*C.DW*time;
+      imgB.x -= xp*C.DW*time;
+      imgB.y -= yp*C.DW*time;
 
       quadC.x = xo+yp*(C.MSN/2);
       quadC.y = yo+xp*(C.MSN/2); 
 
-      quadC.width = C.MSN-xp*(quadB.x-xo);
-      quadC.height = C.MSN-yp*(quadB.y-yo);
+      quadC.width = C.MSN-xp*(imgB.x-xo);
+      quadC.height = C.MSN-yp*(imgB.y-yo);
 
       C.walls[1].x = quadC.x;
       C.walls[1].y = quadC.y;
@@ -145,8 +157,8 @@ class Mason extends Sprite implements IAnimatable {
       quadC.height = C.walls[1].height;
       */
 
-      if (C.walled(quadB.x-xp*C.MSN,quadB.y-yp*C.MSN) ||
-          C.walled(quadB.x+C.MSN,quadB.y+C.MSN)) {
+      if (C.walled(imgB.x-xp*C.MSN,imgB.y-yp*C.MSN) ||
+          C.walled(imgB.x+C.MSN,imgB.y+C.MSN)) {
         trace("B hit wall!");
         C.walls[1].x = Math.round(quadC.x/C.SCALE);
         C.walls[1].y = Math.round(quadC.y/C.SCALE);

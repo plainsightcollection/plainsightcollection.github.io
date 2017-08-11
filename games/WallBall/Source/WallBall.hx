@@ -7,11 +7,15 @@ import starling.animation.IAnimatable;
 import starling.textures.Texture;
 import starling.display.Image;
 import starling.textures.TextureSmoothing;
+import starling.textures.TextureAtlas;
 
 import openfl.events.MouseEvent;
 import openfl.display.BitmapData;
 import openfl.geom.Point;
 import openfl.geom.Rectangle;
+import openfl.utils.Assets;
+
+import haxe.xml.Parser;
 
 import Bridge;
 import Ball;
@@ -32,6 +36,7 @@ class WallBall extends Sprite implements IAnimatable {
   public static var mason:Mason;
   public static var self:WallBall;
   public static var background:Texture;
+  public static var atlas:TextureAtlas;
 
   public static inline var WIDTH = 688;
   public static inline var HEIGHT = 368;
@@ -68,15 +73,14 @@ class WallBall extends Sprite implements IAnimatable {
     upDown = true;
     layingBrick = false;
 
-    var bmp = new BitmapData(D,D,true,0);
-    var cnv = new openfl.display.Sprite();
-    cnv.graphics.beginFill(0xFF00FF00);
-    cnv.graphics.drawCircle(D/2,D/2,D/2);
-    cnv.graphics.endFill();
-    bmp.draw(cnv);
+    var bmp = Assets.getBitmapData("assets/wallball.png");
 
     var tex = Texture.fromBitmapData(bmp);
     bmp.dispose();
+
+    var xml = Parser.parse(Assets.getText("assets/wallball.xml"));
+    atlas = new TextureAtlas(tex,xml);
+    tex = atlas.getTexture("ball");
 
     balls = new Array();
     for (i in 0...MAX) {
