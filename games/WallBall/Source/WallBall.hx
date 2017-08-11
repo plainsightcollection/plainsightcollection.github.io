@@ -21,6 +21,7 @@ import Bridge;
 import Ball;
 import Mason;
 import Dir;
+import WallFilter;
 
 class WallBall extends Sprite implements IAnimatable {
   public static var nativeStage:openfl.display.Stage;
@@ -107,6 +108,7 @@ class WallBall extends Sprite implements IAnimatable {
     img.x = 0;
     img.y = 0;
     img.scale = SCALE;
+    img.filter = new WallFilter(); 
     addChild(img);
     addChild(mason);
     Starling.current.juggler.add(this);
