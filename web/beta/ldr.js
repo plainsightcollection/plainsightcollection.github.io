@@ -2,33 +2,35 @@ var base = "https://plainsightcollection.github.io/web/beta/";
 var body = document.getElementsByTagName("body")[0];
 
 var code = "";
-
-/*
-var org = XMLHttpRequest.prototype.open;
-XMLHttpRequest.prototype.open = function() {
-  console.log(arguments);
-  arguments[1] = base + arguments[1];
-  org.apply(this, arguments);
-}
-*/
-
 var count = 0;
+
 var report = function(e) {
   code += e.currentTarget.responseText;
-  if (count++ == 2) {
+  if (count++ == 3) {
     try {
       eval(code);
 
+      var w = 800;
+      var h = 600;
+
       var a = document.createElement("a");
+      a.className = "plainsight";
       a.href = "#";
       a.style.setProperty("position","fixed");
       a.style.setProperty("z-index","1000000");
       a.style.setProperty("user-select","none");
       a.onclick = function() {
-        window.location.reload(false); 
+        var ps = document.getElementsByClassName("plainsight");
+        for (var i = 0; i < ps.length; i++) ps[i].style.setProperty("visibility","hidden");
       }
+      window.onkeydown = function(e) {
+        if (e.keyCode != 66) return;
+        var ps = document.getElementsByClassName("plainsight");
+        for (var i = 0; i < ps.length; i++) ps[i].style.setProperty("visibility","visible");
+      };
 
       var x = document.createElement("img");
+      x.className = "plainsight";
       x.src = base + "assets/x.svg";
       x.style.setProperty("width","24px");
       x.style.setProperty("height","24px");
@@ -36,11 +38,11 @@ var report = function(e) {
       a.appendChild(x);
 
       var ct = document.createElement("div");
+      ct.className = "plainsight";
       ct.id = "openfl-content";
-      var w = 800;
-      var h = 600;
-      ct.style.setProperty("width",w + "px");
-      ct.style.setProperty("height",h + "px");
+
+      ct.style.setProperty("width","688px");
+      ct.style.setProperty("height","368px");
       ct.style.setProperty("position","fixed");
       ct.style.setProperty("z-index","1000000");
       ct.style.setProperty("user-select","none");
@@ -48,8 +50,8 @@ var report = function(e) {
       var lft = Math.max(0,Math.round((window.innerWidth-w)/2));
       var tp = Math.max(0,Math.round((window.innerHeight-h)/2));
 
-      ct.style.setProperty("left",lft+"px");
-      ct.style.setProperty("top",tp+"px");
+      ct.style.setProperty("left",56+lft+"px");
+      ct.style.setProperty("top",150+tp+"px");
 
       a.style.setProperty("left",(w-12)+lft+"px");
       a.style.setProperty("top",tp-12+"px");
@@ -58,7 +60,8 @@ var report = function(e) {
       body.appendChild(a);
 
       document.title = t;
-		  lime.embed ("Flippy", "openfl-content", w, h, { parameters: {} });
+
+		  lime.embed ("Flippy", "openfl-content", 800, 600, { parameters: {} });
 
     } catch(e) {
       console.log(e);
