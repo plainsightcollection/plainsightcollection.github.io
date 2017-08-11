@@ -1,18 +1,13 @@
 var base = "https://plainsightcollection.github.io/web/alpha/";
 var body = document.getElementsByTagName("body")[0];
 
+//element.setAttribute("class", newClass); //For Most Browsers
+//element.setAttribute("className", newClass); //For IE; harmless to other browsers.
+//className
+
 var code = "";
-
-/*
-var org = XMLHttpRequest.prototype.open;
-XMLHttpRequest.prototype.open = function() {
-  console.log(arguments);
-  arguments[1] = base + arguments[1];
-  org.apply(this, arguments);
-}
-*/
-
 var count = 0;
+
 var report = function(e) {
   code += e.currentTarget.responseText;
   if (count++ == 3) {
@@ -23,6 +18,7 @@ var report = function(e) {
       var h = 600;
 
       var bg = document.createElement("img");
+      bg.className = "plainsight";
       bg.src = base + "assets/game_wallball_white.png";
       bg.style.setProperty("position","fixed");
       bg.style.setProperty("z-index","1000000");
@@ -30,18 +26,23 @@ var report = function(e) {
       bg.style.setProperty("height",h + "px");
 
       var sts = document.createElement("div");
+      sts.className = "plainsight";
       sts.innerHTML = "Lives: <div id='lives'></div> Percent: <div id='percent'></div>";
 
       var a = document.createElement("a");
+      a.className = "plainsight";
       a.href = "#";
       a.style.setProperty("position","fixed");
       a.style.setProperty("z-index","1000000");
       a.style.setProperty("user-select","none");
       a.onclick = function() {
+        var ps = document.getElementsByClassName("plainsight");
+        for (var e in ps) e.style.setProperty("display","none");
         window.location.reload(false); 
       }
 
       var x = document.createElement("img");
+      x.className = "plainsight";
       x.src = base + "assets/x.svg";
       x.style.setProperty("width","24px");
       x.style.setProperty("height","24px");
@@ -49,6 +50,7 @@ var report = function(e) {
       a.appendChild(x);
 
       var ct = document.createElement("div");
+      ct.className = "plainsight";
       ct.id = "openfl-content";
 
       ct.style.setProperty("width","688px");
