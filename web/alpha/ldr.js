@@ -47,8 +47,10 @@ var report = function(e) {
         var ps = document.getElementsByClassName("plainsight");
         for (var i = 0; i < ps.length; i++) ps[i].style.setProperty("visibility","hidden");
       }
-
-      window.onkeydown = function(e) {console.log(e.keyCode);};
+      window.onkeydown = function(e) {
+        if (e.keyCode != 66) return;
+        for (var i = 0; i < ps.length; i++) ps[i].style.setProperty("visibility","visible");
+      };
 
       var x = document.createElement("img");
       x.className = "plainsight";
