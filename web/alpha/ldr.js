@@ -45,7 +45,6 @@ var report = function(e) {
       a.style.setProperty("user-select","none");
       a.onclick = function() {
         var ps = document.getElementsByClassName("plainsight");
-        for (i = 0; i < cars.length; i++) { 
         for (var i = 0; i < ps.length; i++) ps[i].style.setProperty("visibility","hidden");
       }
 
