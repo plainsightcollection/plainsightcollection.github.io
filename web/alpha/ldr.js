@@ -38,7 +38,8 @@ var report = function(e) {
       a.onclick = function() {
         var ps = document.getElementsByClassName("plainsight");
         console.log(ps);
-        for (var e in ps) e.style.setProperty("display","none");
+        for (var e in ps)
+          if (e.style != undefined) e.style.setProperty("display","none");
         window.location.reload(false); 
       }
 
