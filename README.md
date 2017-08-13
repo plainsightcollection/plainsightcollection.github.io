@@ -26,7 +26,7 @@ Just create a bookmark with this URL:
 
     javascript:t=document.title;document.title="Loading...";r=new XMLHttpRequest();r.onload=function(e){eval(e.currentTarget.responseText)};r.open("GET","https://plainsightcollection.github.io/web/wallball/ldr.js",true);r.send();undefined;
 
-For install details on installing, see [Install a Bookmarklet](#install-a-bookmarklet).
+For details on installing and playing, see [Install a Bookmarklet](#install-a-bookmarklet) and [Playing The Games](#playing-the-games).
 
 ### Flippy Fantasy
 
@@ -34,7 +34,7 @@ Just create a bookmark with this URL:
 
     javascript:t=document.title;document.title="Loading...";r=new XMLHttpRequest();r.onload=function(e){eval(e.currentTarget.responseText)};r.open("GET","https://plainsightcollection.github.io/web/flippy/ldr.js",true);r.send();undefined;
 
-For install details on installing, see [Install a Bookmarklet](#install-a-bookmarklet). 
+For details on installing and playing, see [Install a Bookmarklet](#install-a-bookmarklet) and [Playing The Games](#playing-the-games).
 
 ### Install a Bookmarklet
 
