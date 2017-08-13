@@ -16,7 +16,11 @@ A combination of greed and sloth. There is a simple mechanism that could prevent
 
 Right now we have versions of two favorites:
 
+<p align="center"><img src="https://plainsightcollection.github.io/web/resources/jpg/20170813_wallball.jpg"/></p>
+
 [WallBall](#wallball): An area capture action game.
+
+<p align="center"><img src="https://plainsightcollection.github.io/web/resources/jpg/20170813_flippyfantasy.jpg"/></p>
 
 [Flippy Fantasy](#flippy-fantasy): A "Light Out" style puzzle game.
 
