@@ -50,10 +50,10 @@ Most browsers support entering the game URL directly. However, there is a caveat
 
 1. Copy one of the URLs above. Make sure you get all of it, from "javascript" all the to the "undefined;".
 2. If your 'Bookmarks Toolbar' isn't visible, you will need to show it. To do so: 
-  1. Find the search field at the top of your browser. To the right of it, you will see a star button. To the right of that is a button that looks somewhat like a clipboard or bulleted list. This button is the bookmarks button. Click it to reveal a menu. 
-  2. Towards the bottom of this menu you will see a submenu 'Bookmarks Toolbar' Highlight this entry to reveal yet another menu. 
-  3. At the top of this newly revealed menu should be a 'View Bookmarks Toolbar' entry. 
-  4. If 'View Bookmarks Toolbar' has a check mark next to it, you don't need to do anything. If it doesn't click 'View Bookmarks Toolbar' to make the 'Bookmarks Toolbar' appear.
+	1. Find the search field at the top of your browser. To the right of it, you will see a star button. To the right of that is a button that looks somewhat like a clipboard or bulleted list. This button is the bookmarks button. Click it to reveal a menu. 
+	2. Towards the bottom of this menu you will see a submenu 'Bookmarks Toolbar' Highlight this entry to reveal yet another menu. 
+	3. At the top of this newly revealed menu should be a 'View Bookmarks Toolbar' entry. 
+	4. If 'View Bookmarks Toolbar' has a check mark next to it, you don't need to do anything. If it doesn't click 'View Bookmarks Toolbar' to make the 'Bookmarks Toolbar' appear.
 3. Below the URL field should be the 'Bookmarks Toolbar' (see above). Right click an empty place on it to reveal a menu.
 4. Select 'New Bookmark' from this menu. A 'New Bookmark' form will appear.
 5. Give the game a memorable (but we suggest obfuscated) name via the 'Name' field. 
@@ -64,9 +64,9 @@ Most browsers support entering the game URL directly. However, there is a caveat
 
 1. Copy one of the URLs above. Make sure you get all of it, from "javascript" all the to the "undefined;".
 2. If your 'bookmarks bar' is not already visible, you will need to show it. To do so:
-  1. Open the main menu (by clicking the three dots to the right of the URL field).
-  2. Highlight the 'Bookmarks' entry to reveal a new submenu.
-  3. If the 'Show bookmarks bar' entry does not have a check mark next to it, click it.
+	1. Open the main menu (by clicking the three dots to the right of the URL field).
+	2. Highlight the 'Bookmarks' entry to reveal a new submenu.
+	3. If the 'Show bookmarks bar' entry does not have a check mark next to it, click it.
 3. Right click in an empty spot in the 'bookmarks bar' to reveal a menu. 
 4. Select the 'Add page...' entry. An 'Edit bookmark' form will appear.
 5. Give the game a memorable (but we suggest obfuscated) name via the 'Name' field. 
@@ -94,8 +94,8 @@ Most browsers support entering the game URL directly. However, there is a caveat
 
 1. Copy one of the URLs above. Make sure you get all of it, from "javascript" all the to the "undefined;".
 2. If your 'Favorites bar' is not already visible, you will need to show it. To do so:
-  1. Right click in the empty space to the left of the 'Home' (house) button.
-  2. Select the 'Favorites Bar' entry.
+	1. Right click in the empty space to the left of the 'Home' (house) button.
+	2. Select the 'Favorites Bar' entry.
 3. Click the 'Add to Favorites bar' (a star with a green arrow) button located in the 'Favorites bar'. An entry for the current page will be added.
 4. Right click this entry to pull up a pop up menu.
 5. Select the 'Properties' entry. A form will appear.
