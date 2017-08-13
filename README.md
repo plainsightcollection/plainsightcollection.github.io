@@ -6,7 +6,7 @@ Taking advantage of the same security holes corporations maintain so that they c
 
 ### What the Hell is a Bookmarklet?
 
-A bookmarklet is a URL that contains a short computer program instead of the address of a website. On all of the major desktop browsers you can use the normal bookmark managers to manager and launch these short programs. The short programs in "The Plainsight Collection" hijack the currently viewed page to insert a fake ad implementing a classic office time-waster. For install details on installing, see [Install a Bookmarklet](#install-a-bookmarklet).
+A bookmarklet is a URL that contains a short computer program instead of the address of a website. On all of the major desktop browsers you can use the normal bookmark managers to manage and launch these short programs. The short programs in "The Plainsight Collection" hijack the currently viewed page to insert a fake ad implementing a classic office time-waster. For install details on installing, see [Install a Bookmarklet](#install-a-bookmarklet).
 
 ### Hijack the Page? Why the Hell Do Pages Let You Do That?
 
