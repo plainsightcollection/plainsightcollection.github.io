@@ -83,6 +83,14 @@ For install details on installing, see [Install a Bookmarklet](#install-a-bookma
 
 ### Playing The Games
 
+1. Go to almost any (non-Github) page.
+2. Click your bookmarklet (or select it from the 'Bookmarks'->'Favorites' menu on 'Safari').
+
+### Tips
+
+* The first time you load a game, it may take some time to appear. 
+* There is a "boss button" feature. "Closing" the game via the "X" at the top right does not actually close it (to do that you must reload the page). It simply hides it. Hit the 'b' button when a game is hidden to reveal it again.
+
 ### Credits
 
 gfx by [kittyhawk](http://montrose.is/sketching) 
