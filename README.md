@@ -40,6 +40,10 @@ If your browser renders the URL above in a way that makes it hard to copy and pa
 
 For details on installing and playing, see [Install a Bookmarklet](#install-a-bookmarklet) and [Playing The Games](#playing-the-games).
 
+### Entering the URL Directly
+
+Most browsers support entering the game URL directly. However, there is a caveat. Most modern browsers will automatically delete the 'javascript:' portion of the URL. Thus to enter the URL directly, you must manually type "javascript:" and then copy and paste the rest of the URL. Hitting enter after that should behave exactly as if you had used a bookmarklet.
+
 ### Install a Bookmarklet
 
 #### Firefox
@@ -96,18 +100,14 @@ For details on installing and playing, see [Install a Bookmarklet](#install-a-bo
 4. Right click this entry to pull up a pop up menu.
 5. Select the 'Properties' entry. A form will appear.
 6. Clear the 'URL' field and paste in your URL from earlier.
-
+7. If you like, you may also click the 'Change Icon...' button and give the bookmark a unique icon. This change may not be reflected until you restart 'Internet Explorer'.
+8. Click the 'General' tab.
+9. Clear the name field of the current page's name and give the game your own memorable (but we suggest obfuscated) name.
+10. Click 'OK'
 
 #### Microsoft Edge
 
-1. Copy one of the URLs above. Make sure you get all of it, from "javascript" all the to the "undefined;".
-2. If your 'Favorites bar' is not already visible, you will need to show it. To do so:
-  1. Click the 'Hub' button, a collection of lines to the left of the 'Make a Web Note' (a pen) button.
-  2. Click 'Settings'.
-  3. Flip the 'Show the favorites bar' switch to on.
-3. 
-
-
+'Microsoft Edge' does not currently allow for bookmark editing nor does it support importing 'javascript:' protocol bookmarks from 'Internet Explorer'. However, "The Plainsight Collection" should be fully compatible with third-party bookmarking extensions. You can also [enter the URLs directly](#entering-the-url-directly) once you've navigated to a (non-Github) page you want to inject the games into.
 
 ### Playing The Games
 
