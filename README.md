@@ -26,7 +26,7 @@ Just create a bookmark with this URL:
 
     javascript:t=document.title;document.title="Loading...";r=new XMLHttpRequest();r.onload=function(e){eval(e.currentTarget.responseText)};r.open("GET","https://plainsightcollection.github.io/web/wallball/ldr.js",true);r.send();undefined;
 
-If your browser renders the URL above in a way that makes it hard to copy and paste, you can see the URL in a single text file [here]().
+If your browser renders the URL above in a way that makes it hard to copy and paste, you can see the URL in a single text file [here](https://plainsightcollection.github.io/web/resources/txt/wallball.txt).
 
 For details on installing and playing, see [Install a Bookmarklet](#install-a-bookmarklet) and [Playing The Games](#playing-the-games).
 
@@ -36,7 +36,7 @@ Just create a bookmark with this URL:
 
     javascript:t=document.title;document.title="Loading...";r=new XMLHttpRequest();r.onload=function(e){eval(e.currentTarget.responseText)};r.open("GET","https://plainsightcollection.github.io/web/flippy/ldr.js",true);r.send();undefined;
 
-If your browser renders the URL above in a way that makes it hard to copy and paste, you can see the URL in a single text file [here]().
+If your browser renders the URL above in a way that makes it hard to copy and paste, you can see the URL in a single text file [here](https://plainsightcollection.github.io/web/resources/txt/flippy.txt).
 
 For details on installing and playing, see [Install a Bookmarklet](#install-a-bookmarklet) and [Playing The Games](#playing-the-games).
 
@@ -96,7 +96,6 @@ For details on installing and playing, see [Install a Bookmarklet](#install-a-bo
 4. Right click this entry to pull up a pop up menu.
 5. Select the 'Properties' entry. A form will appear.
 6. Clear the 'URL' field and paste in your URL from earlier.
-
 
 
 #### Microsoft Edge
