@@ -2,7 +2,7 @@
 
 "The Plainsight Collection" attempts to continue the time honored tradition of wasting time with entertainment software at work. To fight the realities of "open plan" offices, censoring firewalls, and locked down desktops, "The Plainsight Collection" goes "undercover" taking on the most ubiquitous and invisible form possible: the ad.
 
-Taking advantage of the same security holes corporations maintain so that they can inundate you with advertisements, games in the "The Plainsight Collection" are available as bookmarklets that should work on any website that serves unrestricted third-party advertisements... which is to say almost all of them.
+Taking advantage of the same security holes corporations maintain so that they can inundate you with advertisements, games in the "The Plainsight Collection" are available as desktop browser bookmarklets that should work on any website that serves unrestricted third-party advertisements that is to say... almost all of them.
 
 ### What the Hell is a Bookmarklet?
 
