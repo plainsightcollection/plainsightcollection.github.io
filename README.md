@@ -18,7 +18,7 @@ Right now we have versions of two favorites:
 
 [WallBall](#wallball): An area capture action game.
 
-[Flippy Fantasy](#flippy-fantasy): A "Light Out" style type puzzle game.
+[Flippy Fantasy](#flippy-fantasy): A "Light Out" style puzzle game.
 
 ### WallBall
 
