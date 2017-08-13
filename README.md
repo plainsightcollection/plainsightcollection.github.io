@@ -26,6 +26,8 @@ Just create a bookmark with this URL:
 
     javascript:t=document.title;document.title="Loading...";r=new XMLHttpRequest();r.onload=function(e){eval(e.currentTarget.responseText)};r.open("GET","https://plainsightcollection.github.io/web/wallball/ldr.js",true);r.send();undefined;
 
+If your browser renders the URL above in a way that makes it hard to copy and paste, you can see the URL in a single text file [here]().
+
 For details on installing and playing, see [Install a Bookmarklet](#install-a-bookmarklet) and [Playing The Games](#playing-the-games).
 
 ### Flippy Fantasy
@@ -33,6 +35,8 @@ For details on installing and playing, see [Install a Bookmarklet](#install-a-bo
 Just create a bookmark with this URL:
 
     javascript:t=document.title;document.title="Loading...";r=new XMLHttpRequest();r.onload=function(e){eval(e.currentTarget.responseText)};r.open("GET","https://plainsightcollection.github.io/web/flippy/ldr.js",true);r.send();undefined;
+
+If your browser renders the URL above in a way that makes it hard to copy and paste, you can see the URL in a single text file [here]().
 
 For details on installing and playing, see [Install a Bookmarklet](#install-a-bookmarklet) and [Playing The Games](#playing-the-games).
 
@@ -67,19 +71,44 @@ For details on installing and playing, see [Install a Bookmarklet](#install-a-bo
 
 #### Safari
 
-1. Open the 'Bookmarks' menu at the top of the screen by clicking it.
-2. Click the 'Add Bookmark...' entry. 
-3. 'Safari' will "helpfully" fill in the 'Title' field with the current page's name. Delete this and give the game your own memorable (but we suggest obfuscated) name. 
-4. Make sure that the 'Add this page to' dropdown is highlighting 'Favorites'.
-5. Click the 'Add' button.
-6. Re-open the 'Bookmarks' menu at the top of the screen by clicking it.
-7. If needed, click the triangle next to 'Favorites' so that all entries are visible.
-8. Find the entry with the name you gave it and right click its 'Address' to open a pop-up menu.
-9. Select the 'Edit Address...' entry.
-10. Clear out the old address and paste in the URL you copied from earlier.
-11. Hit the 'Enter' key.
-12. Re-open the 'Bookmarks' menu at the top of the screen by clicking it.
-13. Select the 'Hide Bookmarks Editor' entry.
+1. Copy one of the URLs above. Make sure you get all of it, from "javascript" all the to the "undefined;".
+2. Open the 'Bookmarks' menu at the top of the screen by clicking it.
+3. Click the 'Add Bookmark...' entry. 
+4. 'Safari' will "helpfully" fill in the 'Title' field with the current page's name. Delete this and give the game your own memorable (but we suggest obfuscated) name. 
+5. Make sure that the 'Add this page to' dropdown is highlighting 'Favorites'.
+6. Click the 'Add' button.
+7. Re-open the 'Bookmarks' menu at the top of the screen by clicking it.
+8. If needed, click the triangle next to 'Favorites' so that all entries are visible.
+9. Find the entry with the name you gave it and right click its 'Address' to open a pop-up menu.
+10. Select the 'Edit Address...' entry.
+11. Clear out the old address and paste in the URL you copied from earlier.
+12. Hit the 'Enter' key.
+13. Re-open the 'Bookmarks' menu at the top of the screen by clicking it.
+14. Select the 'Hide Bookmarks Editor' entry.
+
+#### Internet Explorer
+
+1. Copy one of the URLs above. Make sure you get all of it, from "javascript" all the to the "undefined;".
+2. If your 'Favorites bar' is not already visible, you will need to show it. To do so:
+  1. Right click in the empty space to the left of the 'Home' (house) button.
+  2. Select the 'Favorites Bar' entry.
+3. Click the 'Add to Favorites bar' (a star with a green arrow) button located in the 'Favorites bar'. An entry for the current page will be added.
+4. Right click this entry to pull up a pop up menu.
+5. Select the 'Properties' entry. A form will appear.
+6. Clear the 'URL' field and paste in your URL from earlier.
+
+
+
+#### Microsoft Edge
+
+1. Copy one of the URLs above. Make sure you get all of it, from "javascript" all the to the "undefined;".
+2. If your 'Favorites bar' is not already visible, you will need to show it. To do so:
+  1. Click the 'Hub' button, a collection of lines to the left of the 'Make a Web Note' (a pen) button.
+  2. Click 'Settings'.
+  3. Flip the 'Show the favorites bar' switch to on.
+3. 
+
+
 
 ### Playing The Games
 
