@@ -40,17 +40,46 @@ For install details on installing, see [Install a Bookmarklet](#install-a-bookma
 
 #### Firefox
 
-1. Copy one of the URLs above. Make sure you get all of it, from "'javascript'" all the to the "'undefined;'".
+1. Copy one of the URLs above. Make sure you get all of it, from "javascript" all the to the "undefined;".
 2. If your 'Bookmarks Toolbar' isn't visible, you will need to show it. To do so: 
-	1. Find the search field at the top of your browser. To the right of it, you will see a star button. To the right of that is a button that looks somewhat like a clipboard or bulleted list. This button is the bookmarks button. Click it to reveal a menu. 
-	2. Towards the bottom of this menu you will see a submenu 'Bookmarks Toolbar' Highlight this entry to reveal yet another menu. 
-	3. At the top of this newly revealed menu should be a 'View Bookmarks Toolbar' entry. 
-	4. If 'View Bookmarks Toolbar' has a check next to it, you don't need to do anything. If it doesn't click 'View Bookmarks Toolbar' to make the 'Bookmarks Toolbar' appear.
+  1. Find the search field at the top of your browser. To the right of it, you will see a star button. To the right of that is a button that looks somewhat like a clipboard or bulleted list. This button is the bookmarks button. Click it to reveal a menu. 
+  2. Towards the bottom of this menu you will see a submenu 'Bookmarks Toolbar' Highlight this entry to reveal yet another menu. 
+  3. At the top of this newly revealed menu should be a 'View Bookmarks Toolbar' entry. 
+  4. If 'View Bookmarks Toolbar' has a check mark next to it, you don't need to do anything. If it doesn't click 'View Bookmarks Toolbar' to make the 'Bookmarks Toolbar' appear.
 3. Below the URL field should be the 'Bookmarks Toolbar' (see above). Right click an empty place on it to reveal a menu.
 4. Select 'New Bookmark' from this menu. A 'New Bookmark' form will appear.
 5. Give the game a memorable (but we suggest obfuscated) name via the 'Name' field. 
-6. Copy the URL into the 'Location' field.
+6. Copy the URL from earlier into the 'Location' field.
 7. Click the 'Add' button.
+
+#### Chrome
+
+1. Copy one of the URLs above. Make sure you get all of it, from "javascript" all the to the "undefined;".
+2. If your 'bookmarks bar' is not already visible, you will need to show it. To do so:
+  1. Open the main menu (by clicking the three dots to the right of the URL field).
+  2. Highlight the 'Bookmarks' entry to reveal a new submenu.
+  3. If the 'Show bookmarks bar' entry does not have a check mark next to it, click it.
+3. Right click in an empty spot in the 'bookmarks bar' to reveal a menu. 
+4. Select the 'Add page...' entry. An 'Edit bookmark' form will appear.
+5. Give the game a memorable (but we suggest obfuscated) name via the 'Name' field. 
+6. Copy the URL from earlier into the 'Location' field.
+7. Click the 'Save' button.
+
+#### Safari
+
+1. Open the 'Bookmarks' menu at the top of the screen by clicking it.
+2. Click the 'Add Bookmark...' entry. 
+3. 'Safari' will "helpfully" fill in the 'Title' field with the current page's name. Delete this and give the game your own memorable (but we suggest obfuscated) name. 
+4. Make sure that the 'Add this page to' dropdown is highlighting 'Favorites'.
+5. Click the 'Add' button.
+6. Re-open the 'Bookmarks' menu at the top of the screen by clicking it.
+7. If needed, click the triangle next to 'Favorites' so that all entries are visible.
+8. Find the entry with the name you gave it and right click its 'Address' to open a pop-up menu.
+9. Select the 'Edit Address...' entry.
+10. Clear out the old address and paste in the URL you copied from earlier.
+11. Hit the 'Enter' key.
+12. Re-open the 'Bookmarks' menu at the top of the screen by clicking it.
+13. Select the 'Hide Bookmarks Editor' entry.
 
 ### Playing The Games
 
