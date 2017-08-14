@@ -125,7 +125,7 @@ Most browsers support entering the game URL directly. However, there is a caveat
 
 ### Credits
 
-gfx & logo by [kittyhawk](http://montrose.is/sketching) 
+gfx & logos by [kittyhawk](http://montrose.is/sketching) 
 
 code by [tjay](https://twitter.com/gtrevorjay)
 
