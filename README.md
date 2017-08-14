@@ -129,7 +129,7 @@ gfx & logos by [kittyhawk](http://montrose.is/sketching)
 
 code by [tjay](https://twitter.com/gtrevorjay)
 
-caviar dreams font by [Lauren Thompson](http://www.nymfont.com/2009/06/new-caviar-dreams-font.html)
+Caviar Dreams font by [Lauren Thompson](http://www.nymfont.com/2009/06/new-caviar-dreams-font.html)
 
 flag photo by [Steven L. Shepard,](https://www.flickr.com/photos/presidioofmonterey/7343032302/in/photolist-cbSXFd-V7m7oA-fG6DkE-Umb5NH-dks2UK-akaEiD-r42Wbz-dj6sHS-vuQzpq-UtNgRn-MWPRW6-GsYbKp-sC3xFn-DLcQ23-8d5na3-UgEqx7-6rfLLY-HKoLD4-MmcrXv-VbHChi-LnaqEg-zbAcz2-usLDNR-6CfqBZ-v8ancB-vp5BWJ-GPEvc3-woMe5v-vsQ5ei-toJSzW-MztCF7-wXWB9J-xCkcKb-sJiAVS-UAv9vj-tCZpHS-sJirzh-wY5Agz-UZ4FgT-UAvcKA-w7ayto-KpxkF4-xUX8q6-toJn6f-toHckU-UZ4G9K-RWcrtt-ybZBcf-JxJnAv-ouAFcX)
 
