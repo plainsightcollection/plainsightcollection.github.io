@@ -8,6 +8,8 @@ import starling.textures.Texture;
 import starling.display.Image;
 import starling.textures.TextureSmoothing;
 import starling.textures.TextureAtlas;
+import starling.display.Quad;
+import starling.animation.Tween;
 
 import openfl.events.MouseEvent;
 import openfl.display.BitmapData;
@@ -34,6 +36,7 @@ class WallBall extends Sprite implements IAnimatable {
   public static var balls:Array<Ball>;
   public static var playfields:Array<BitmapData>;
   public static var walls:Array<Rectangle>;
+  public static var shield:Quad;
   public static var mason:Mason;
   public static var self:WallBall;
   public static var background:Texture;
@@ -198,6 +201,28 @@ class WallBall extends Sprite implements IAnimatable {
 
       self.addChild(balls[i]);
     }
+
+    if (level != MIN) return;
+
+    if (shield == null) {
+      shield = new Quad(WIDTH, HEIGHT, 0xFFFF0000); 
+      return;
+    }
+
+    shield.alpha = 0;
+    var fadeIn = new Tween(shield,1/10);
+    fadeIn.fadeTo(1.0);
+    var fadeOut = new Tween(shield,1/10);
+    fadeOut.fadeTo(0.0);
+    fadeOut.onComplete = shieldsDown;
+    fadeIn.nextTween = fadeOut;
+    Starling.current.juggler.add(fadeIn);
+    self.addChild(shield);
+
+  }
+
+  public static function shieldsDown():Void {
+    self.removeChild(shield);
   }
 
   public static function walled(x:Float, y:Float):Bool {
@@ -221,8 +246,13 @@ class WallBall extends Sprite implements IAnimatable {
   public static function fill() {
     playfields[1] = playfields[0].clone();
     playfields[1].lock();
+    var x:Int;
+    var y:Int;
     for (i in 0...level) {
-      playfields[1].floodFill(Math.round(balls[i].cx/4),Math.round(balls[i].cy/4),0xFFFF0000);
+      x = Math.round(balls[i].cx/4);
+      y = Math.round(balls[i].cy/4);
+      if (playfields[1].getPixel32(x,y) != 0xFF000000)
+        playfields[1].floodFill(x,y,0xFFFF0000);
     }
     playfields[0].lock();
     var color:UInt;
