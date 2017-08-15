@@ -3,6 +3,7 @@ var body = document.getElementsByTagName("body")[0];
 
 var code = "";
 var count = 0;
+var hidden = false;
 
 var report = function(e) {
   code += e.currentTarget.responseText;
@@ -22,11 +23,15 @@ var report = function(e) {
       a.onclick = function() {
         var ps = document.getElementsByClassName("plainsight");
         for (var i = 0; i < ps.length; i++) ps[i].style.setProperty("visibility","hidden");
+        hidden = true;
       }
       window.onkeydown = function(e) {
         if (e.keyCode != 66) return;
         var ps = document.getElementsByClassName("plainsight");
-        for (var i = 0; i < ps.length; i++) ps[i].style.setProperty("visibility","visible");
+        var prop = "hidden";
+        if (hidden) prop = "visible";
+        hidden = !hidden;
+        for (var i = 0; i < ps.length; i++) ps[i].style.setProperty("visibility",prop);
       };
 
       var x = document.createElement("img");

@@ -54,8 +54,8 @@ var report = function(e) {
         var ps = document.getElementsByClassName("plainsight");
         var prop = "hidden";
         if (hidden) prop = "visible";
-        for (var i = 0; i < ps.length; i++) ps[i].style.setProperty("visibility",prop);
         hidden = !hidden;
+        for (var i = 0; i < ps.length; i++) ps[i].style.setProperty("visibility",prop);
       };
 
       var x = document.createElement("img");
