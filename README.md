@@ -62,7 +62,7 @@ Most browsers support entering the game URL directly. However, there is a caveat
 
 #### Firefox
 
-1. Copy one of the URLs above. Make sure you get all of it, from "javascript" all the to the "undefined;".
+1. Copy one of the URLs above. Make sure you get all of it, from "javascript" all the way to "undefined;".
 2. If your 'Bookmarks Toolbar' isn't visible, you will need to show it. To do so: 
 	1. Find the search field at the top of your browser. To the right of it, you will see a star button. To the right of that is a button that looks somewhat like a clipboard or bulleted list. This button is the bookmarks button. Click it to reveal a menu. 
 	2. Towards the bottom of this menu you will see a submenu 'Bookmarks Toolbar' Highlight this entry to reveal yet another menu. 
@@ -76,7 +76,7 @@ Most browsers support entering the game URL directly. However, there is a caveat
 
 #### Chrome
 
-1. Copy one of the URLs above. Make sure you get all of it, from "javascript" all the to the "undefined;".
+1. Copy one of the URLs above. Make sure you get all of it, from "javascript" all the way to "undefined;".
 2. If your 'bookmarks bar' is not already visible, you will need to show it. To do so:
 	1. Open the main menu (by clicking the three dots to the right of the URL field).
 	2. Highlight the 'Bookmarks' entry to reveal a new submenu.
@@ -89,7 +89,7 @@ Most browsers support entering the game URL directly. However, there is a caveat
 
 #### Safari
 
-1. Copy one of the URLs above. Make sure you get all of it, from "javascript" all the to the "undefined;".
+1. Copy one of the URLs above. Make sure you get all of it, from "javascript" all the way to "undefined;".
 2. Open the 'Bookmarks' menu at the top of the screen by clicking it.
 3. Click the 'Add Bookmark...' entry. 
 4. 'Safari' will "helpfully" fill in the 'Title' field with the current page's name. Delete this and give the game your own memorable (but we suggest obfuscated) name. 
@@ -106,7 +106,7 @@ Most browsers support entering the game URL directly. However, there is a caveat
 
 #### Internet Explorer
 
-1. Copy one of the URLs above. Make sure you get all of it, from "javascript" all the to the "undefined;".
+1. Copy one of the URLs above. Make sure you get all of it, from "javascript" all the way to "undefined;".
 2. If your 'Favorites bar' is not already visible, you will need to show it. To do so:
 	1. Right click in the empty space to the left of the 'Home' (house) button.
 	2. Select the 'Favorites Bar' entry.
