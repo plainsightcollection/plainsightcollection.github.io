@@ -46,7 +46,7 @@ For details on installing and playing, see [Install a Bookmarklet](#install-a-bo
 
 ### Entering the URL Directly
 
-Most browsers support entering the game URL directly. However, there is a caveat. Many browsers will delete or ignore the 'javascript:' prefix if you cut and paste the entire URL. To work around this, manually type "javascript:" and then copy and paste the rest of the URL. Hitting enter after that should behave exactly as if you had used a bookmarklet.
+Most browsers support entering the game URL directly into the address bar. However, there is a caveat. Many browsers will delete or ignore the 'javascript:' prefix if you cut and paste the entire URL. To work around this, go the the page on which you want to play the game and manually clear and replace the address by highlighting it and typing "javascript:". After that, you can paste the rest of the URL. Hitting enter should then behave exactly as if you had used a bookmarklet.
 
 ### Install a Bookmarklet
 
@@ -139,15 +139,23 @@ gfx & logos by [kittyhawk](http://montrose.is/sketching)
 
 code by [tjay](https://twitter.com/gtrevorjay)
 
-Caviar Dreams font by [Lauren Thompson](http://www.nymfont.com/2009/06/new-caviar-dreams-font.html)
+### Additional Credits
 
-flag photo by [Steven L. Shepard,](https://www.flickr.com/photos/presidioofmonterey/7343032302/in/photolist-cbSXFd-V7m7oA-fG6DkE-Umb5NH-dks2UK-akaEiD-r42Wbz-dj6sHS-vuQzpq-UtNgRn-MWPRW6-GsYbKp-sC3xFn-DLcQ23-8d5na3-UgEqx7-6rfLLY-HKoLD4-MmcrXv-VbHChi-LnaqEg-zbAcz2-usLDNR-6CfqBZ-v8ancB-vp5BWJ-GPEvc3-woMe5v-vsQ5ei-toJSzW-MztCF7-wXWB9J-xCkcKb-sJiAVS-UAv9vj-tCZpHS-sJirzh-wY5Agz-UZ4FgT-UAvcKA-w7ayto-KpxkF4-xUX8q6-toJn6f-toHckU-UZ4G9K-RWcrtt-ybZBcf-JxJnAv-ouAFcX)
+Oswald font by [Vernon Adams](https://github.com/vernnobile)
 
-desert photo by [Gentry George](https://commons.wikimedia.org/wiki/File:A_scenic_view_of_lands_on_the_desert.jpg)
+Luminari font by Philip Bouwsma ([macOS](https://www.apple.com/))
 
 Trump photo by [Shealah Craighead](https://commons.wikimedia.org/wiki/File:Trump_at_King_Khalid_International_Airport.jpg)
 
+Neue Helvetica font by D. Stempel AG ([macOS](https://www.apple.com/))
+
+desert photo by [Gentry George](https://commons.wikimedia.org/wiki/File:A_scenic_view_of_lands_on_the_desert.jpg)
+
+flag photo by [Steven L. Shepard,](https://www.flickr.com/photos/presidioofmonterey/7343032302/in/photolist-cbSXFd-V7m7oA-fG6DkE-Umb5NH-dks2UK-akaEiD-r42Wbz-dj6sHS-vuQzpq-UtNgRn-MWPRW6-GsYbKp-sC3xFn-DLcQ23-8d5na3-UgEqx7-6rfLLY-HKoLD4-MmcrXv-VbHChi-LnaqEg-zbAcz2-usLDNR-6CfqBZ-v8ancB-vp5BWJ-GPEvc3-woMe5v-vsQ5ei-toJSzW-MztCF7-wXWB9J-xCkcKb-sJiAVS-UAv9vj-tCZpHS-sJirzh-wY5Agz-UZ4FgT-UAvcKA-w7ayto-KpxkF4-xUX8q6-toJn6f-toHckU-UZ4G9K-RWcrtt-ybZBcf-JxJnAv-ouAFcX)
+
 Lake Tekapo photo by [Bernard Spragg](https://www.flickr.com/photos/volvob12b/10339185584/)
+
+Caviar Dreams font by [Lauren Thompson](http://www.nymfont.com/2009/06/new-caviar-dreams-font.html)
 
 <p align="center"><a href="http://montrose.is/games"><img src="https://plainsightcollection.github.io/web/resources/svg/montrose.svg" width="25%"/></a></p>
 
