@@ -139,6 +139,8 @@ gfx & logos by [kittyhawk](http://montrose.is/sketching)
 
 code by [tjay](https://twitter.com/gtrevorjay)
 
+engine by [Starling](https://github.com/openfl/starling)
+
 ### Additional Credits
 
 Oswald font by [Vernon Adams](https://github.com/vernnobile)
