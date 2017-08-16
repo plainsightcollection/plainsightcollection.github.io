@@ -1,10 +1,11 @@
 var Cursor = function() {
-  console.log("cursor constructor");
+  this.openflContent = document.getElementById("openfl-content");
+  return;
 };
 
 Cursor.prototype = {
   set: function(cur) {
-    console.log("setting css to: " + cur);
+    this.openflContent.style.setProperty("cursor", cur);
     return;
   }
 };
