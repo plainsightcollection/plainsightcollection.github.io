@@ -16,11 +16,11 @@ A combination of greed and sloth. There is a simple mechanism that could prevent
 
 Right now we have versions of two favorites:
 
-<p align="center"><img src="web/resources/jpg/20170813_wallball.jpg"/></p>
+<p align="center"><a href="https://github.com/plainsightcollection/plainsightcollection.github.io#wallball"><img src="web/resources/jpg/20170813_wallball.jpg"/></a></p>
 
 [WallBall](#wallball): An area capture action game.
 
-<p align="center"><img src="web/resources/jpg/20170813_flippyfantasy.jpg"/></p>
+<p align="center"><a href="https://github.com/plainsightcollection/plainsightcollection.github.io#flippy-fantasy"><img src="web/resources/jpg/20170813_flippyfantasy.jpg"/></a></p>
 
 [Flippy Fantasy](#flippy-fantasy): A "Light Out" style puzzle game.
 
@@ -51,9 +51,13 @@ Most browsers support entering the game URL directly. However, there is a caveat
 ### Install a Bookmarklet
 
 [Firefox](#firefox)
+
 [Chrome](#chrome)
+
 [Safari](#safari)
+
 [Internet Explorer](#internet-explorer)
+
 [Microsoft Edge](#microsoft-edge)
 
 #### Firefox
