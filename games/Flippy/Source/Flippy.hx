@@ -18,6 +18,7 @@ import haxe.xml.Parser;
 
 import Level;
 import LevelData;
+import Cursor;
 
 class Flippy extends Sprite {
   public static var nativeStage:openfl.display.Stage;
@@ -51,10 +52,16 @@ class Flippy extends Sprite {
 
   private var current:Int;
 
+  private var cursor:Cursor;
+  private var pointer:Bool;
+
   public function new() {
     super();
 
     locked = true;
+
+    cursor = new Cursor();
+    pointer = false;
 
     levelData = new LevelData();
     levels = new Array();
@@ -131,6 +138,7 @@ class Flippy extends Sprite {
     }
 
     nativeStage.addEventListener(MouseEvent.CLICK, onClick);
+    nativeStage.addEventListener(MouseEvent.MOUSE_MOVE, onMove);
     addEventListener(Event.ADDED_TO_STAGE,onAdded);
 
     clear();
@@ -172,6 +180,60 @@ class Flippy extends Sprite {
               Math.ceil((e.localY-MT)/SIZE-1)*COLS;
 
     move(idx);
+
+  }
+
+  private function onMove(e:MouseEvent) {
+    
+    if (locked) {
+      if (!pointer) return;
+      cursor.set("default");
+      pointer = false;
+      return;
+    }
+
+    if (left.contains(e.localX,e.localY)) {
+      if (pointer) return;
+      cursor.set("pointer");
+      pointer = true;
+      return;
+    }
+    if (right.contains(e.localX,e.localY)) {
+      if (pointer) return;
+      cursor.set("pointer");
+      pointer = true;
+      return;
+    }
+    if (reset.contains(e.localX,e.localY)) {
+      if (pointer) return;
+      cursor.set("pointer");
+      pointer = true;
+      return;
+    }
+
+    if (e.localX < ML || 
+        e.localX > ML+SIZE*COLS || 
+        e.localY < MT || 
+        e.localY > MT+SIZE*ROWS) {
+      if (!pointer) return;
+      cursor.set("default");
+      pointer = false;
+      return;
+    }
+
+    var idx = Math.ceil((e.localX-ML)/SIZE-1) + 
+              Math.ceil((e.localY-MT)/SIZE-1)*COLS;
+
+    if (levels[current].moves[idx].length > 0) {
+      if (pointer) return;
+      cursor.set("pointer");
+      pointer = true;
+      return;
+    }
+
+    if (!pointer) return;
+    cursor.set("default");
+    pointer = false;
 
   }
 
@@ -262,6 +324,9 @@ class Flippy extends Sprite {
   }
 
   private function win():Void {
+    cursor.set("default");  
+    pointer = false;
+
     var tween:Tween;
     for (i in 0...hLinks.length) {
       tween = new Tween(hLinks[i],DUR);
@@ -283,6 +348,7 @@ class Flippy extends Sprite {
         }
       Starling.current.juggler.add(tween);
     }
+
   }
 
 }

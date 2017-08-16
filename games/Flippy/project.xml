@@ -13,4 +13,6 @@
 	
 	<assets path="Assets" rename="assets"/>
 
+  <dependency path="dependencies/cursor.js" if="html5" />
+
 </project>

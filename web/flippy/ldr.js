@@ -7,7 +7,7 @@ var hidden = false;
 
 var report = function(e) {
   code += e.currentTarget.responseText;
-  if (count++ == 2) {
+  if (count++ == 3) {
     try {
       eval(code);
 
@@ -77,18 +77,22 @@ var report = function(e) {
 var a = new XMLHttpRequest();
 var b = new XMLHttpRequest();
 var c = new XMLHttpRequest();
+var d = new XMLHttpRequest();
 
 a.onload = report;
 b.onload = report;
 c.onload = report;
+d.onload = report;
 
 a.open("GET", base + "lib/howler.min.js", true);
 b.open("GET", base + "lib/pako.min.js", true);
-c.open("GET", base + "Flippy.js", true);
+c.open("GET", base + "lib/cursor.js", true);
+d.open("GET", base + "Flippy.js", true);
 
 a.send();
 b.send();
 c.send();
+d.send();
 
 //updateSize HTML5Application.hx
 //HTML5HTTPRequest.hx
