@@ -46,9 +46,15 @@ For details on installing and playing, see [Install a Bookmarklet](#install-a-bo
 
 ### Entering the URL Directly
 
-Most browsers support entering the game URL directly. However, there is a caveat. Most modern browsers will automatically delete the 'javascript:' portion of the URL. Thus to enter the URL directly, you must manually type "javascript:" and then copy and paste the rest of the URL. Hitting enter after that should behave exactly as if you had used a bookmarklet.
+Most browsers support entering the game URL directly. However, there is a caveat. Many browsers will delete or ignore the 'javascript:' prefix if you cut and paste the entire URL. To work around this, manually type "javascript:" and then copy and paste the rest of the URL. Hitting enter after that should behave exactly as if you had used a bookmarklet.
 
 ### Install a Bookmarklet
+
+[Firefox](#firefox)
+[Chrome](#chrome)
+[Safari](#safari)
+[Internet Explorer](#internet-explorer)
+[Microsoft Edge](#microsoft-edge)
 
 #### Firefox
 
