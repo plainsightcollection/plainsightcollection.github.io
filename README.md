@@ -125,7 +125,7 @@ Most browsers support entering the game URL directly into the address bar. Howev
 
 ### Playing The Games
 
-1. Go to almost any (non-Github) page.
+1. Go to almost any (non-Github) page with 3rd-party ads.
 2. Click your bookmarklet (or select it from the 'Bookmarks'->'Favorites' menu on 'Safari').
 
 ### Tips
