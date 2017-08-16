@@ -133,13 +133,13 @@ Most browsers support entering the game URL directly into the address bar. Howev
 * The first time you load a game, it may take some time to appear. 
 * There is a "boss button" feature. "Closing" the game via the "X" at the top right does not actually close it (to do that you must reload the page). It simply hides it. Hit the 'b' button when a game is hidden to reveal it again.
 
-### Credits
+### montrose.is
 
 gfx & logos by [kittyhawk](http://montrose.is/sketching) 
 
 code by [tjay](https://twitter.com/gtrevorjay)
 
-### Additional Credits
+### Credits
 
 Oswald font by [Vernon Adams](https://github.com/vernnobile)
 
