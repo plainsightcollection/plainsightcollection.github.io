@@ -160,4 +160,3 @@ engine by [Starling](https://github.com/openfl/starling)
 Caviar Dreams font by [Lauren Thompson](http://www.nymfont.com/2009/06/new-caviar-dreams-font.html)
 
 <p align="center"><a href="http://montrose.is/games"><img src="https://plainsightcollection.github.io/web/resources/svg/montrose-min.svg" width="25%"/></a></p>
-
