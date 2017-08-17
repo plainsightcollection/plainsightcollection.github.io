@@ -1,8 +1,8 @@
 <p align="center"><a href="https://plainsightcollection.github.io"><img src="https://plainsightcollection.github.io/web/resources/svg/logo.svg" width="25%"/></a></p>
 
-"The Plainsight Collection" attempts to continue the time honored tradition of wasting time with entertainment software at work. To fight the realities of "open plan" offices, censoring firewalls, and locked down desktops, "The Plainsight Collection" goes "undercover" taking on the most ubiquitous and invisible form possible: the ad.
+Play games at work, even while the boss is watching! "The Plainsight Collection" attempts to continue the time honored tradition of wasting time with entertainment software at work. To fight the realities of "open plan" offices, censoring firewalls, and locked down desktops, "The Plainsight Collection" goes "undercover" taking on the most ubiquitous and invisible form possible: the ad. 
 
-Taking advantage of the same security holes corporations maintain so that they can inundate you with advertisements, games in the "The Plainsight Collection" are available as desktop browser bookmarklets that should work on any website that serves unrestricted third-party advertisements that is to say... almost all of them.
+Taking advantage of the same security holes corporations maintain so that they can inundate you with advertisements, games in the "The Plainsight Collection" can appear as "fake" ads on any website that serves unrestricted third-party advertisements. In other words: almost any site on the Internet. This is possible because games in the "The Plainsight Collection" are published as desktop browser bookmarklets.
 
 ### What the Hell is a Bookmarklet?
 
