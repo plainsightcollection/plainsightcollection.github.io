@@ -22,7 +22,7 @@ Right now we have versions of two favorites:
 
 <p align="center"><a href="https://github.com/plainsightcollection/plainsightcollection.github.io#flippy-fantasy"><img src="web/resources/jpg/20170813_flippyfantasy.jpg"/></a></p>
 
-[Flippy Fantasy](#flippy-fantasy): A "Light Out" style puzzle game.
+[Flippy Fantasy](#flippy-fantasy): A "Lights Out" style puzzle game.
 
 ### WallBall
 
