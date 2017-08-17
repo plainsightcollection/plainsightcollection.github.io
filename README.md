@@ -1,4 +1,4 @@
-<p align="center"><a href="https://plainsightcollection.github.io"><img src="https://plainsightcollection.github.io/web/resources/svg/logo.svg" width="25%"/></a></p>
+<p align="center"><a href="https://plainsightcollection.github.io"><img src="https://plainsightcollection.github.io/web/resources/svg/logo-min.svg" width="25%"/></a></p>
 
 Play games at work, even while the boss is watching! "The Plainsight Collection" attempts to continue the time honored tradition of wasting time with entertainment software at work. To fight the realities of "open plan" offices, censoring firewalls, and locked down desktops, "The Plainsight Collection" goes "undercover" taking on the most ubiquitous and invisible form possible: the ad. 
 
