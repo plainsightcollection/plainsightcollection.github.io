@@ -18,11 +18,11 @@ Right now we have versions of two favorites:
 
 <p align="center"><a href="https://github.com/plainsightcollection/plainsightcollection.github.io#wallball"><img src="web/resources/jpg/20170813_wallball.jpg"/></a></p>
 
-[WallBall](#wallball): An area capture action game.
+[WallBall](#wallball): An area capture action game. Left clicks build wall segments two at a time. Right clicks reorient the direction walls are built. Balls interrupt wall segments still under construction. Reach 75% coverage to move onto the next level. You are allowed the same number of interruptions as there are balls in the level.
 
 <p align="center"><a href="https://github.com/plainsightcollection/plainsightcollection.github.io#flippy-fantasy"><img src="web/resources/jpg/20170813_flippyfantasy.jpg"/></a></p>
 
-[Flippy Fantasy](#flippy-fantasy): A "Lights Out" style puzzle game.
+[Flippy Fantasy](#flippy-fantasy): A "Lights Out" style puzzle game. Clicking toggles a piece between being a dragon or dragon skull. Pieces connected by a single green line will also toggle. The goal is to have only skulls. Puzzles are selected with the left and right arrows and can be reset with the 'Reset' button.
 
 ### WallBall
 
