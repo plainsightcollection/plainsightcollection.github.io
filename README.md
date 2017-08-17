@@ -10,7 +10,7 @@ A bookmarklet is a URL that contains a short computer program instead of the add
 
 ### Hijack the Page? Why the Hell Do Pages Let You Do That?
 
-A combination of greed and sloth. There is a simple mechanism that could prevent it called the `Content Security Policy`. Pages on the web *could* tell your browser to only run code from them when you are on their site. However, this would mean that the site owner would have to pay to serve you ads (rather than them coming from other services), would not be able to invade your privacy as much (because they wouldn't be able to correlate your data with other sites) and would have to take legal responsibility for the ad content (which is risky because advertisers often serve malware and viruses).
+A combination of greed and sloth. There is a simple mechanism that could prevent it called the [Content Security Policy](https://en.wikipedia.org/wiki/Content_Security_Policy). Pages on the web *could* tell your browser to only run code from them when you are on their site. However, this would mean that the site owner would have to pay to serve you ads (rather than them coming from other services), would not be able to invade your privacy as much (because they wouldn't be able to correlate your data with other sites) and would have to take legal responsibility for the ad content (which is risky because advertisers often serve malware and viruses).
 
 ### Enough! What About the Games?
 
