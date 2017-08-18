@@ -8,9 +8,11 @@ Taking advantage of the same security holes corporations maintain so that they c
 
 A bookmarklet is a URL that contains a short computer program instead of the address of a website. On all of the major desktop browsers you can use the normal bookmark managers to manage and launch these short programs. The short programs in "The Plainsight Collection" hijack the currently viewed page to insert a fake ad implementing a classic office time-waster. For details on installing, see [Install a Bookmarklet](#install-a-bookmarklet).
 
-### Hijack the Page? Why the Hell Do Pages Let You Do That?
+### Hijack the Page? Why the Hell Do Pages Let You Do That? What Else Can Bookmarklets Do?
 
 A combination of greed and sloth. There is a simple mechanism that could prevent it called the [Content Security Policy](https://en.wikipedia.org/wiki/Content_Security_Policy). Pages on the web *could* tell your browser to only run code from them when you are on their site. However, this would mean that the site owner would have to pay to serve you ads (rather than them coming from other services), would not be able to invade your privacy as much (because they wouldn't be able to correlate your data with other sites) and would have to take legal responsibility for the ad content (which is risky because advertisers often serve malware and viruses).
+
+Bookmarklets run their content in the context of the page in which they are injected much as if you were mixing two web pages together. If a site has a lax Content Security Policy, a bookmarklet can see the information on the target page and can share information with it, so you shouldn't use them on sites where you're currently logged in or which otherwise have personal information. Besides having special access to the target page, bookmarklets don't have any more privileges than any other web content[[Wikipedia]](https://en.wikipedia.org/wiki/Bookmarklet#Concept). 
 
 ### Enough! What About the Games?
 
