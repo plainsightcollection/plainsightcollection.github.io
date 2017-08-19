@@ -6,7 +6,7 @@ Taking advantage of the same security holes corporations maintain so that they c
 
 ### What the Hell is a Bookmarklet?
 
-A bookmarklet is a URL that contains a short computer program instead of the address of a website. On all of the major desktop browsers you can use the normal bookmark managers to manage and launch these short programs. The short programs in "The Plainsight Collection" hijack the currently viewed page to insert a fake ad implementing a classic office time-waster. For details on installing, see [Manually Install a Bookmarklet](#manually-install-a-bookmarklet).
+A bookmarklet is a URL that contains a short computer program instead of the address of a website. On all of the major desktop browsers you can use the normal bookmark managers to manage and launch these short programs. The short programs in "The Plainsight Collection" hijack the currently viewed page to insert a fake ad implementing a classic office time-waster. For details on installing, see [Install a Bookmarklet](#install-a-bookmarklet).
 
 ### Hijack the Page? Why the Hell Do Pages Let You Do That? What Else Can Bookmarklets Do?
 
@@ -28,49 +28,29 @@ Right now we have versions of two favorites:
 
 ### WallBall
 
-If your browser's bookmark/favorites bar is visible, you should be able to drag the link below to it:
-
-[WallBall](javascript:t=document.title;document.title="Loading...";r=new XMLHttpRequest();r.onload=function(e){eval(e.currentTarget.responseText)};r.open("GET","https://plainsightcollection.github.io/web/wallball/ldr.js",true);r.send();undefined;)
-
-'Chrome' users can use the keyboard shortcut `Ctrl+Shift+B` to show and hide the 'bookmarks bar'.
-
-'Firefox' users can click the bookmarks icon (it is near the search field to the right of the star and the left of the down arrow), select the 'Bookmarks Toolbar' and check/uncheck the 'View Bookmarks Toolbar'.
-
-'Internet Explorer' users can right click in the empty space to the left of the 'Home' button and select the 'Favorites Bar' entry.
-
-If dragging and dropping doesn't work for you or you have a different browser, you can copy the URL below and [Manually Install a Bookmarklet](#manually-install-a-bookmarklet).
+Just create a bookmark with this URL:
 
     javascript:t=document.title;document.title="Loading...";r=new XMLHttpRequest();r.onload=function(e){eval(e.currentTarget.responseText)};r.open("GET","https://plainsightcollection.github.io/web/wallball/ldr.js",true);r.send();undefined;
 
 If your browser renders the URL above in a way that makes it hard to copy and paste, you can see the URL in a single text file [here](https://plainsightcollection.github.io/web/resources/txt/wallball.txt).
 
-For details on using the bookmarklet, see [Playing The Games](#playing-the-games).
+For details on installing and playing, see [Install a Bookmarklet](#install-a-bookmarklet) and [Playing The Games](#playing-the-games).
 
 ### Flippy Fantasy
 
-If your browser's bookmark/favorites bar is visible, you should be able to drag the link below to it:
-
-<p align="center"><a href="javascript:t=document.title;document.title='Loading...';r=new XMLHttpRequest();r.onload=function(e){eval(e.currentTarget.responseText)};r.open('GET','https://plainsightcollection.github.io/web/flippy/ldr.js',true);r.send();undefined;">Flippy Fantasy</a></p>
-
-'Chrome' users can use the keyboard shortcut `Ctrl+Shift+B` to reveal and hide the 'bookmarks bar'.
-
-'Firefox' users can click the bookmarks icon (it is near the search field to the right of the star and the left of the down arrow), select the 'Bookmarks Toolbar' and check/uncheck the 'View Bookmarks Toolbar'.
-
-'Internet Explorer' users can right click in the empty space to the left of the 'Home' button and select the 'Favorites Bar' entry.
-
-If dragging and dropping doesn't work for you or you have a different browser, you can copy the URL below and [Manually Install a Bookmarklet](#manually-install-a-bookmarklet).
+Just create a bookmark with this URL:
 
     javascript:t=document.title;document.title="Loading...";r=new XMLHttpRequest();r.onload=function(e){eval(e.currentTarget.responseText)};r.open("GET","https://plainsightcollection.github.io/web/flippy/ldr.js",true);r.send();undefined;
 
-If your browser renders the URL above in a way that makes it hard to copy and paste, you can see the URL in a single text file [here](https://plainsightcollection.github.io/web/resources/txt/wallball.txt).
+If your browser renders the URL above in a way that makes it hard to copy and paste, you can see the URL in a single text file [here](https://plainsightcollection.github.io/web/resources/txt/flippy.txt).
 
-For details on using the bookmarklet, see [Playing The Games](#playing-the-games).
+For details on installing and playing, see [Install a Bookmarklet](#install-a-bookmarklet) and [Playing The Games](#playing-the-games).
 
 ### Entering the URL Directly
 
 Most browsers support entering the game URL directly into the address bar. However, there is a caveat. Many browsers will delete or ignore the 'javascript:' prefix if you cut and paste the entire URL. To work around this, go the the page on which you want to play the game and manually clear and replace the address by highlighting it and typing "javascript:". After that, you can paste the rest of the URL. Hitting enter should then behave exactly as if you had used a bookmarklet.
 
-### Manually Install a Bookmarklet
+### Install a Bookmarklet
 
 [Firefox](#firefox)
 
