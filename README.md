@@ -30,7 +30,7 @@ Right now we have versions of two favorites:
 
 If your browser's bookmark/favorites bar is visible, you should be able to drag the link below to it:
 
-<p align="center"><a href='javascript:t=document.title;document.title="Loading...";r=new XMLHttpRequest();r.onload=function(e){eval(e.currentTarget.responseText)};r.open("GET","https://plainsightcollection.github.io/web/wallball/ldr.js",true);r.send();undefined;'>WallBall</a></p>
+<p align="center"><a href="javascript:t=document.title;document.title='Loading...';r=new XMLHttpRequest();r.onload=function(e){eval(e.currentTarget.responseText)};r.open('GET','https://plainsightcollection.github.io/web/wallball/ldr.js',true);r.send();undefined;">WallBall</a></p>
 
 'Chrome' users can use the keyboard shortcut `Ctrl+Shift+B` to show and hide the 'bookmarks bar'.
 
@@ -50,7 +50,7 @@ For details on using the bookmarklet, see [Playing The Games](#playing-the-games
 
 If your browser's bookmark/favorites bar is visible, you should be able to drag the link below to it:
 
-<p align="center"><a href='javascript:t=document.title;document.title="Loading...";r=new XMLHttpRequest();r.onload=function(e){eval(e.currentTarget.responseText)};r.open("GET","https://plainsightcollection.github.io/web/flippy/ldr.js",true);r.send();undefined;'>Flippy Fantasy</a></p>
+<p align="center"><a href="javascript:t=document.title;document.title='Loading...';r=new XMLHttpRequest();r.onload=function(e){eval(e.currentTarget.responseText)};r.open('GET','https://plainsightcollection.github.io/web/flippy/ldr.js',true);r.send();undefined;">Flippy Fantasy</a></p>
 
 'Chrome' users can use the keyboard shortcut `Ctrl+Shift+B` to reveal and hide the 'bookmarks bar'.
 
