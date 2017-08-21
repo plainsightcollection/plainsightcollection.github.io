@@ -161,4 +161,10 @@ engine by [Starling](https://github.com/openfl/starling)
 
 Caviar Dreams font by [Lauren Thompson](http://www.nymfont.com/2009/06/new-caviar-dreams-font.html)
 
+### Copyright & License
+
+All original art, code, and prose is Copyright 2017 and made available under the terms of the GNU General Public License version 3 as published by the Free Software Foundation.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License (available in the COPYING file) for more details.
+
 <p align="center"><a href="http://montrose.is/games"><img src="https://plainsightcollection.github.io/web/resources/svg/montrose-min.svg" width="25%"/></a></p>
