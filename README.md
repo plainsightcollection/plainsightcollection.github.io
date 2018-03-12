@@ -135,6 +135,10 @@ Most browsers support entering the game URL directly into the address bar. Howev
 * The first time you load a game, it may take some time to appear. 
 * There is a "boss button" feature. "Closing" the game via the "X" at the top right does not actually close it (to do that you must reload the page). It simply hides it. Hit the 'b' button when a game is hidden to reveal it again.
 
+### Ad Blockers
+
+Some ad blockers will block third-party bookmarklets. If the page title doesn't change to "Loading..." after running the bookmarklet or if it does but never changes back to the original title, you may need to temporarily disable any filtering for that domain.
+
 ### montrose.is
 
 gfx & logos by [kittyhawk](http://montrose.is/sketching) 
