@@ -30,25 +30,25 @@ Right now we have versions of two favorites:
 
 If you don't care about any of this bookmark madness and just want to play the game, you can play it on our landing page [here](http://montrose.is/#wallball). Be sure to allow few moments for loading.
 
-Just create a bookmark with this URL:
+If you want to be able to inject the game on different websites, just create a bookmark with this URL:
 
     javascript:t=document.title;document.title="Loading...";r=new XMLHttpRequest();r.onload=function(e){eval(e.currentTarget.responseText)};r.open("GET","https://plainsightcollection.github.io/web/wallball/ldr.js",true);r.send();undefined;
 
 If your browser renders the URL above in a way that makes it hard to copy and paste, you can see the URL in a single text file [here](https://plainsightcollection.github.io/web/resources/txt/wallball.txt).
 
-For details on installing and playing on different websites, see [Install a Bookmarklet](#install-a-bookmarklet) and [Playing The Games](#playing-the-games).
+For details on installing bookmarklets and playing on different websites, see [Install a Bookmarklet](#install-a-bookmarklet) and [Playing The Games](#playing-the-games).
 
 ### Flippy Fantasy
 
 If you don't care about any of this bookmark madness and just want to play the game, you can play it on our landing page [here](http://montrose.is/#flippyfantasy). Be sure to allow few moments for loading.
 
-Just create a bookmark with this URL:
+If you want to be able to inject the game on different websites, just create a bookmark with this URL:
 
     javascript:t=document.title;document.title="Loading...";r=new XMLHttpRequest();r.onload=function(e){eval(e.currentTarget.responseText)};r.open("GET","https://plainsightcollection.github.io/web/flippy/ldr.js",true);r.send();undefined;
 
 If your browser renders the URL above in a way that makes it hard to copy and paste, you can see the URL in a single text file [here](https://plainsightcollection.github.io/web/resources/txt/flippy.txt).
 
-For details on installing and playing on different websites, see [Install a Bookmarklet](#install-a-bookmarklet) and [Playing The Games](#playing-the-games).
+For details on installing bookmarklets and playing on different websites, see [Install a Bookmarklet](#install-a-bookmarklet) and [Playing The Games](#playing-the-games).
 
 ### Entering the URL Directly
 
