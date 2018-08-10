@@ -28,7 +28,7 @@ Right now we have versions of two favorites:
 
 ### WallBall
 
-If you don't care about any of this bookmark madness and just want to play the game, you can play it on our landing page [here](http://montrose.is/#wallball). Be sure to allow few moments for loading.
+If you don't care about any of this bookmark madness and just want to play the game, you can play it on our landing page [here](http://montrose.is/#wallball). Be sure to allow a few moments for loading.
 
 If you want to be able to inject the game on different websites, just create a bookmark with this URL:
 
@@ -40,7 +40,7 @@ For details on installing bookmarklets and playing on different websites, see [I
 
 ### Flippy Fantasy
 
-If you don't care about any of this bookmark madness and just want to play the game, you can play it on our landing page [here](http://montrose.is/#flippyfantasy). Be sure to allow few moments for loading.
+If you don't care about any of this bookmark madness and just want to play the game, you can play it on our landing page [here](http://montrose.is/#flippyfantasy). Be sure to allow a few moments for loading.
 
 If you want to be able to inject the game on different websites, just create a bookmark with this URL:
 
@@ -131,7 +131,7 @@ Most browsers support entering the game URL directly into the address bar. Howev
 
 ### Playing The Games
 
-If you don't care about any of this bookmark madness and just want to play the games, you can play them on our landing page. Click [here](http://montrose.is/#wallball) to play [WallBall](#wallball) or [here](http://montrose.is/#flippyfantasy) to play [Flippy Fantasy](#flippy-fantasy). Be sure to allow few moments for loading.
+If you don't care about any of this bookmark madness and just want to play the games, you can play them on our landing page. Click [here](http://montrose.is/#wallball) to play [WallBall](#wallball) or [here](http://montrose.is/#flippyfantasy) to play [Flippy Fantasy](#flippy-fantasy). Be sure to allow a few moments for loading.
 
 If you've already [installed a bookmarklet](#install-a-bookmarklet):
 
