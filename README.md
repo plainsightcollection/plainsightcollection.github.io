@@ -28,15 +28,19 @@ Right now we have versions of two favorites:
 
 ### WallBall
 
+If you don't care about any of this bookmark madness and just want to play the game, you can play it on our landing page [here](http://montrose.is/#wallball). Be sure to allow few moments for loading.
+
 Just create a bookmark with this URL:
 
     javascript:t=document.title;document.title="Loading...";r=new XMLHttpRequest();r.onload=function(e){eval(e.currentTarget.responseText)};r.open("GET","https://plainsightcollection.github.io/web/wallball/ldr.js",true);r.send();undefined;
 
 If your browser renders the URL above in a way that makes it hard to copy and paste, you can see the URL in a single text file [here](https://plainsightcollection.github.io/web/resources/txt/wallball.txt).
 
-For details on installing and playing, see [Install a Bookmarklet](#install-a-bookmarklet) and [Playing The Games](#playing-the-games).
+For details on installing and playing on different websites, see [Install a Bookmarklet](#install-a-bookmarklet) and [Playing The Games](#playing-the-games).
 
 ### Flippy Fantasy
+
+If you don't care about any of this bookmark madness and just want to play the game, you can play it on our landing page [here](http://montrose.is/#flippyfantasy). Be sure to allow few moments for loading.
 
 Just create a bookmark with this URL:
 
@@ -44,7 +48,7 @@ Just create a bookmark with this URL:
 
 If your browser renders the URL above in a way that makes it hard to copy and paste, you can see the URL in a single text file [here](https://plainsightcollection.github.io/web/resources/txt/flippy.txt).
 
-For details on installing and playing, see [Install a Bookmarklet](#install-a-bookmarklet) and [Playing The Games](#playing-the-games).
+For details on installing and playing on different websites, see [Install a Bookmarklet](#install-a-bookmarklet) and [Playing The Games](#playing-the-games).
 
 ### Entering the URL Directly
 
@@ -126,6 +130,10 @@ Most browsers support entering the game URL directly into the address bar. Howev
 'Microsoft Edge' does not currently allow for bookmark editing nor does it support importing 'javascript:' protocol bookmarks from 'Internet Explorer'. However, "The Plainsight Collection" should be fully compatible with third-party bookmarking extensions. You can also [enter the URLs directly](#entering-the-url-directly) once you've navigated to a (non-Github) page you want to inject the games into.
 
 ### Playing The Games
+
+If you don't care about any of this bookmark madness and just want to play the games, you can play them on our landing page. Click [here](http://montrose.is/#wallball) to play [WallBall](#wallball) or [here](http://montrose.is/#flippyfantasy) to play [Flippy Fantasy](#flippy-fantasy). Be sure to allow few moments for loading.
+
+If you've already [installed a bookmarklet](#install-a-bookmarklet):
 
 1. Go to almost any (non-Github) page with 3rd-party ads.
 2. Click your bookmarklet (or select it from the 'Bookmarks'->'Favorites' menu on 'Safari').
