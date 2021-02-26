@@ -20,11 +20,11 @@ Right now we have versions of two favorites:
 
 <p align="center"><a href="https://github.com/plainsightcollection/plainsightcollection.github.io#wallball"><img src="web/resources/jpg/20170813_wallball.jpg"/></a></p>
 
-[WallBall](#wallball): An area capture action game. Left clicks build wall segments two at a time. Right clicks reorient build direction. Balls interrupt segment construction. Reach 75% coverage to move to the next level. You are allowed the same number of interruptions per level as there are balls. You can take it for a test drive [here](http://montrose.is/#wallball) (allow a few moments for loading).
+[WallBall](#wallball): An area capture action game. Left clicks build wall segments two at a time. Right clicks reorient build direction. Balls interrupt segment construction. Reach 75% coverage to move to the next level. You are allowed the same number of interruptions per level as there are balls. You can take it for a test drive [here](https://montrose.is/wallball.html) (allow a few moments for loading).
 
 <p align="center"><a href="https://github.com/plainsightcollection/plainsightcollection.github.io#flippy-fantasy"><img src="web/resources/jpg/20170813_flippyfantasy.jpg"/></a></p>
 
-[Flippy Fantasy](#flippy-fantasy): A "Lights Out" style puzzle game. Clicking toggles a piece between dragon and skull. Pieces connected to the clicked piece by a single green line will also toggle. The goal is to have all skulls. Puzzles are selected with the left and right arrows and can be reset with the 'Reset' button. You can take it for a test drive [here](http://montrose.is/#flippyfantasy) (allow a few moments for loading).
+[Flippy Fantasy](#flippy-fantasy): A "Lights Out" style puzzle game. Clicking toggles a piece between dragon and skull. Pieces connected to the clicked piece by a single green line will also toggle. The goal is to have all skulls. Puzzles are selected with the left and right arrows and can be reset with the 'Reset' button. You can take it for a test drive [here](https://montrose.is/flippy.html) (allow a few moments for loading).
 
 ### WallBall
 
